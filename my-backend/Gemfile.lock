@@ -62,6 +62,7 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.4)
@@ -114,6 +115,7 @@ PLATFORMS
 
 DEPENDENCIES
   devise
+  rack-cors
   rails (= 4.2.4)
   sdoc
   sqlite3

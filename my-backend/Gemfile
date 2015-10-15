@@ -7,3 +7,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 gem 'devise'
+
+group :development do
+  gem 'rack-cors', require: 'rack/cors'
+end

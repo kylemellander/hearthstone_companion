@@ -1,8 +1,7 @@
 <h2 id='title'>Frontend</h2>
- 
 {{#link-to 'index'}}Home{{/link-to}}
 {{#link-to 'protected'}}Protected{{/link-to}}
- 
+
 {{#if session.isAuthenticated}}
     <button {{ action 'invalidateSession' }}>Logout</button>
 {{else}}
@@ -10,4 +9,7 @@
 {{/if}}
 
 <hr>
+
+<div id="messages"></div>
+
 {{outlet}}

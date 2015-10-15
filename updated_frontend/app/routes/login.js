@@ -3,14 +3,26 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   actions: {
     signup() {
-      var data = btoa(this.controller.identification + ":" + this.controller.password);
-      var response = Ember.$.ajax({
-        type: "POST",
-        url: "http://localhost:3000/users",
-        data: { signup_token: data },
-        async: false
+      var email = this.controller.identification;
+      var password = this.controller.password;
+
+      var user = this.store.createRecord('user', {
+        email: email,
+        password: password
       });
-      debugger;
+
+      user.save().catch(function(response) {
+        var message = "<ul>";
+        response.errors.forEach(function(error) {
+          if (error.source.pointer === "/data/attributes/email") {
+            message += "<li>Email " + error.detail + ".</li>"
+          }
+        });
+        message += "</ul>"
+        $('#messages').empty().append(message);
+      }).then(function(response) {
+        debugger;
+      });
 
     }
   }

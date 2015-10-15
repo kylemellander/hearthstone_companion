@@ -12,6 +12,7 @@
     "jquery": "^1.11.3",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "ember-simple-auth": "0.6.7",
-    "qunit": "~1.18.0"
+    "qunit": "~1.18.0",
+    "active-model-adapter": "~2.0.1"
   }
 }
