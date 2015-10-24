@@ -1,3 +1,3 @@
 class CardUserSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :count, :card_id
 end

@@ -1,8 +1,18 @@
 class CardUsersController < ApplicationController
   def index
     if user && Devise.secure_compare(user.authentication_token, token)
-      @cards = user.cards
-      render json: @cards
+      @card_users = user.card_users
+      render json: @card_users
+    else
+
+      render json: {"error": "You are not logged in."}
+    end
+  end
+
+  def show
+    if user && Devise.secure_compare(user.authentication_token, token)
+      @card_user = CardUser.find(params[:id])
+      render json: @card_user
     else
       render json: {"error": "You are not logged in."}
     end
@@ -10,10 +20,10 @@ class CardUsersController < ApplicationController
 
   def create
     if user && Devise.secure_compare(user.authentication_token, token)
-      card_user = CardUser.find_or_initialize_by(user_id: user.id, card_id: params[:card].to_i)
-      card_user.update(count: params[:count].to_i)
+      card_user = CardUser.find_or_initialize_by(user_id: user.id, card_id: card_user_params[:card_id].to_i)
+      card_user.update(count: card_user_params[:count])
       card_user.save
-      head :no_content
+      render json: card_user
     else
       render json: {"error": "You are not logged in."}
     end
@@ -21,7 +31,7 @@ class CardUsersController < ApplicationController
 
   def update
     if user && Devise.secure_compare(user.authentication_token, token)
-      user.card_users.where(card_id: params[:card].to_i)[0].update({count: params[:count].to_i})
+      user.card_users.where(card_id: card_user_params[:card_id].to_i)[0].update({count: card_user_params[:count]})
       head :no_content
     else
       render json: {"error": "You are not logged in."}
@@ -49,5 +59,9 @@ class CardUsersController < ApplicationController
 
   def user
     user_email && User.find_by_email(user_email)
+  end
+
+  def card_user_params
+    params.require(:card_user).permit(:card_id, :count, :id)
   end
 end

@@ -10,46 +10,33 @@ export default Ember.Component.extend({
   cardRarity: "All",
   cardCost: "All",
   hideOwned: false,
+  lastClicked: "",
   submit: function(e) {
     e.preventDefault();
   },
+
   filteredCards: Ember.computed.filter('sortedCards', function(card) {
     var search = this.get('cardSearch').toLowerCase();
+    if (this.get('hideOwned')) {
+      var notOwned = card.get('cardUser').content === null;
+    } else {
+      var notOwned = true;
+    }
     return  card.get('name').toLowerCase().indexOf(search) > -1 &&
             (this.get('cardSet') === "" ||
-            card.get('card_set') === this.get('cardSet')) &&
+            card.get('cardSet') === this.get('cardSet')) &&
             (this.get('cardClass') === "All" ||
-            card.get('player_class') === this.get('cardClass')) &&
+            card.get('playerClass') === this.get('cardClass')) &&
             (this.get('cardRarity') === "All" ||
             card.get('rarity') === this.get('cardRarity')) &&
             (this.get('cardCost') === "All" ||
             card.get('cost') === parseInt(this.get('cardCost')) ||
-            (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7))
-  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards'),
-  // filteredCardsAndHide: Ember.computed.filter('hideOwnedCards', function(card) {
-  //   var search = this.get('cardSearch').toLowerCase();
-  //   return  card.get('name').toLowerCase().indexOf(search) > -1 &&
-  //           (this.get('cardSet') === "" ||
-  //           card.get('card_set') === this.get('cardSet')) &&
-  //           (this.get('cardClass') === "All" ||
-  //           card.get('player_class') === this.get('cardClass')) &&
-  //           (this.get('cardRarity') === "All" ||
-  //           card.get('rarity') === this.get('cardRarity')) &&
-  //           (this.get('cardCost') === "All" ||
-  //           card.get('cost') === parseInt(this.get('cardCost')) ||
-  //           (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7))
-  // }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'hideOwnedCards'),
-  // hideOwnedCards: Ember.computed.filter('userCards', function(card) {
-  //   for (var key in this.get('userCards').content) {
-  //     if (this.get('userCards').content.hasOwnProperty(key)) {
-  //       if (this.get('userCards').content[key].record.get('card').content.id === card.id) {
-  //         return false;
-  //       }
-  //     }
-  //   }
-  // }).property('userCards'),
+            (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7)) &&
+            notOwned
+  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'hideOwned', 'lastClicked'),
   actions: {
     addCard(userCards, card, count) {
+      this.set('lastClicked', card.get('name'));
       this.sendAction('addCard', userCards, card, count);
     },
     toggleDisplay() {

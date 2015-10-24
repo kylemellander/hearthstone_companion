@@ -27,8 +27,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       })
       if (found === false && count > 0) {
         var cardUserParams = {card: card, count: count};
-        var newCardUser = this.store.createRecord('user-card', cardUserParams);
-        newCardUser.save();
+        var newCardUser = this.store.createRecord('cardUser', cardUserParams);
+        newCardUser.save()
       }
     }
   }

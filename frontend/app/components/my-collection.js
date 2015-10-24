@@ -16,9 +16,9 @@ export default Ember.Component.extend({
     var search = this.get('cardSearch').toLowerCase();
     return  userCard.get('card').get('name').toLowerCase().indexOf(search) > -1 &&
             (this.get('cardSet') === "" ||
-            userCard.get('card').get('card_set') === this.get('cardSet')) &&
+            userCard.get('card').get('cardSet') === this.get('cardSet')) &&
             (this.get('cardClass') === "All" ||
-            userCard.get('card').get('player_class') === this.get('cardClass')) &&
+            userCard.get('card').get('playerClass') === this.get('cardClass')) &&
             (this.get('cardRarity') === "All" ||
             userCard.get('card').get('rarity') === this.get('cardRarity')) &&
             (this.get('cardCost') === "All" ||
