@@ -18,7 +18,9 @@ export default Ember.Component.extend({
   filteredCards: Ember.computed.filter('sortedCards', function(card) {
     var search = this.get('cardSearch').toLowerCase();
     if (this.get('hideOwned')) {
-      var notOwned = card.get('cardUser').content === null;
+      var notOwned = card.get('cardUser').content === null ||
+                     (card.get('rarity') !== "Legendary" &&
+                     card.get('cardUser').content.get('count') !== 2);
     } else {
       var notOwned = true;
     }
@@ -32,7 +34,7 @@ export default Ember.Component.extend({
             (this.get('cardCost') === "All" ||
             card.get('cost') === parseInt(this.get('cardCost')) ||
             (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7)) &&
-            notOwned
+            notOwned;
   }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'hideOwned', 'lastClicked'),
   actions: {
     addCard(userCards, card, count) {
