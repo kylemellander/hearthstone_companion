@@ -61,6 +61,8 @@
 
 {{input type="checkbox" checked=hideOwned}} Hide Owned
 
+<a {{action 'addAll' filteredCards}}>Add All</a>
+
 <div class="container-fluid">
   <div class="row">
     {{#each filteredCards as |card|}}

@@ -17,13 +17,6 @@ export default Ember.Component.extend({
 
   filteredCards: Ember.computed.filter('sortedCards', function(card) {
     var search = this.get('cardSearch').toLowerCase();
-    if (this.get('hideOwned')) {
-      var notOwned = card.get('cardUser').content === null ||
-                     (card.get('rarity') !== "Legendary" &&
-                     card.get('cardUser').content.get('count') !== 2);
-    } else {
-      var notOwned = true;
-    }
     return  card.get('name').toLowerCase().indexOf(search) > -1 &&
             (this.get('cardSet') === "" ||
             card.get('cardSet') === this.get('cardSet')) &&
@@ -34,7 +27,10 @@ export default Ember.Component.extend({
             (this.get('cardCost') === "All" ||
             card.get('cost') === parseInt(this.get('cardCost')) ||
             (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7)) &&
-            notOwned;
+            (!(this.get('hideOwned')) ||
+            (card.get('cardUser').content === null ||
+            (card.get('rarity') !== "Legendary" &&
+            card.get('cardUser').content.get('count') !== 2)));
   }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'hideOwned', 'lastClicked'),
   actions: {
     addCard(userCards, card, count) {
@@ -73,6 +69,14 @@ export default Ember.Component.extend({
       this.set('cardCost', str);
       $(".cost-display").removeClass("active");
       $(".cost-display." + str).addClass("active");
+    },
+    addAll(filteredCards) {
+      var userCards = this.get('userCards');
+      var self = this;
+      filteredCards.forEach(function(card) {
+        if (card.get('rarity') === "Legendary") { var count = 1} else { var count = 2; };
+        self.sendAction('addCard', userCards, card, count);
+      })
     }
   }
 });
