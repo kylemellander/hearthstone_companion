@@ -12,4 +12,5 @@ gem 'active_model_serializers'
 
 group :development do
   gem 'rack-cors', require: 'rack/cors'
+  gem 'pry'
 end

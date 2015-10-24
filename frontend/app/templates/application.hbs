@@ -1,6 +1,8 @@
 <h2 id='title'>Frontend</h2>
 {{#link-to 'index'}}Home{{/link-to}}
 {{#link-to 'protected'}}Protected{{/link-to}}
+{{#link-to 'collection'}}Collection{{/link-to}}
+{{#link-to 'scrape'}}Scrape{{/link-to}}
 
 {{#if session.isAuthenticated}}
     <button {{ action 'invalidateSession' }}>Logout</button>
