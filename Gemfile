@@ -7,6 +7,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 gem 'devise'
+gem 'ember-cli-rails'
+gem 'active_model_serializers'
 
 group :development do
   gem 'rack-cors', require: 'rack/cors'

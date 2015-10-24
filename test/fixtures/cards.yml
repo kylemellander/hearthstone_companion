@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  card_set: MyString
+  rarity: MyString
+  cost: 1
+  player_class: MyString
+  card_type: MyString
+  img: MyString
+  hearthstone_id: MyString
+
+two:
+  name: MyString
+  card_set: MyString
+  rarity: MyString
+  cost: 1
+  player_class: MyString
+  card_type: MyString
+  img: MyString
+  hearthstone_id: MyString

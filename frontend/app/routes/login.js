@@ -12,6 +12,7 @@ export default Ember.Route.extend({
       });
 
       user.save().catch(function(response) {
+        user.set('password', "[protected]")
         var message = "<ul>";
         response.errors.forEach(function(error) {
           if (error.source.pointer === "/data/attributes/email") {
@@ -23,6 +24,7 @@ export default Ember.Route.extend({
         message += "</ul>";
         $('#messages').empty().append(message).removeClass("success").addClass("error");
       }).then(function(response) {
+        user.set('password', "[protected]")
         if (response) {
           $('#messages').empty().append("Your account has been created successfully!").removeClass("error").addClass("success");
         }

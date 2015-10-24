@@ -11,9 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617061018) do
+ActiveRecord::Schema.define(version: 20151024000013) do
 
-  create_table "users", force: true do |t|
+  create_table "card_users", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "user_id"
+    t.integer "count",   default: 0
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "card_set"
+    t.string   "rarity"
+    t.integer  "cost"
+    t.string   "player_class"
+    t.string   "card_type"
+    t.string   "img"
+    t.string   "hearthstone_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

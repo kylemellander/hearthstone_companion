@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   before_save :ensure_authentication_token
 
+  has_many :card_users
+  has_many :cards, through: :card_users
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,9 +15,9 @@ class User < ActiveRecord::Base
       self.authentication_token = generate_authentication_token
     end
   end
- 
+
   private
- 
+
     def generate_authentication_token
       loop do
         token = Devise.friendly_token
