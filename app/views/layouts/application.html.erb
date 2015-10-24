@@ -2,11 +2,10 @@
 <html>
 <head>
   <title>MyBackend</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= include_ember_script_tags :frontend %>
+  <%= include_ember_stylesheet_tags :frontend %>
 </head>
 <body>
-
 <%= yield %>
 
 </body>

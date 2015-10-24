@@ -1,3 +1,12 @@
-{{#each model as |card|}}
-  {{card.name}}
-{{/each}}
+<div class="container-fluid collection-container">
+  <div class="row">
+
+    <div class="col-sm-10" id="cardlist">
+      {{card-list cards=model.cards userCards=model.cardUsers session=session addCard="addCard"}}
+    </div>
+    <div class="col-sm-2" id="mycollection">
+      <h3 class="section-headers">My Collection:</h3>
+      {{my-collection cards=model.cards userCards=model.cardUsers session=session addCard="addCard"}}
+    </div>
+  </div>
+</div>

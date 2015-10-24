@@ -1,0 +1,63 @@
+<div class="sort-box">
+  <p>
+    Set:
+    <a {{action 'setCardSet' ""}} class="set-link All active">All</a>
+    <a {{action 'setCardSet' "Classic"}} class="set-link Classic">Classic</a>
+    <a {{action 'setCardSet' "Naxxramas"}} class="set-link Naxx">Naxx</a>
+    <a {{action 'setCardSet' "Goblins vs Gnomes"}} class="set-link GVG">GVG</a>
+    <a {{action 'setCardSet' "Blackrock Mountain"}} class="set-link BRM">BRM</a>
+    <a {{action 'setCardSet' "The Grand Tournament"}} class="set-link TGT">TGT</a>
+  </p>
+
+  <p>
+    Class:
+    <a {{action 'setCardClass' "All"}} class="class-link active All">All</a>
+    <a {{action 'setCardClass' ""}} class="class-link Neutral">Neutral</a>
+    <a {{action 'setCardClass' "Druid"}} class="class-link Druid">Druid</a>
+    <a {{action 'setCardClass' "Hunter"}} class="class-link Hunter">Hunter</a>
+    <a {{action 'setCardClass' "Mage"}} class="class-link Mage">Mage</a>
+    <a {{action 'setCardClass' "Paladin"}} class="class-link Paladin">Paladin</a>
+    <a {{action 'setCardClass' "Priest"}} class="class-link Priest">Priest</a>
+    <a {{action 'setCardClass' "Rogue"}} class="class-link Rogue">Rogue</a>
+    <a {{action 'setCardClass' "Shaman"}} class="class-link Shaman">Shaman</a>
+    <a {{action 'setCardClass' "Warlock"}} class="class-link Warlock">Warlock</a>
+    <a {{action 'setCardClass' "Warrior"}} class="class-link Warrior">Warrior</a>
+  </p>
+
+  <p>
+    Rarity:
+    <a {{action 'setCardRarity' "All"}} class="rarity-link active All">All</a>
+    <a {{action 'setCardRarity' "Basic"}} class="rarity-link Basic">Basic</a>
+    <a {{action 'setCardRarity' "Common"}} class="rarity-link Common">Common</a>
+    <a {{action 'setCardRarity' "Rare"}} class="rarity-link Rare">Rare</a>
+    <a {{action 'setCardRarity' "Epic"}} class="rarity-link Epic">Epic</a>
+    <a {{action 'setCardRarity' "Legendary"}} class="rarity-link Legendary">Legendary</a>
+  </p>
+
+  <p>
+    Cost:
+    <a {{action 'setCardCost' "All"}} class="cost-link active All">All</a>
+    <a {{action 'setCardCost' 0}} class="cost-link 0">0</a>
+    <a {{action 'setCardCost' 1}} class="cost-link 1">1</a>
+    <a {{action 'setCardCost' 2}} class="cost-link 2">2</a>
+    <a {{action 'setCardCost' 3}} class="cost-link 3">3</a>
+    <a {{action 'setCardCost' 4}} class="cost-link 4">4</a>
+    <a {{action 'setCardCost' 5}} class="cost-link 5">5</a>
+    <a {{action 'setCardCost' 6}} class="cost-link 6">6</a>
+    <a {{action 'setCardCost' 7}} class="cost-link 7">7+</a>
+  </p>
+</div>
+<div>
+  <form id="cardSearchField" class="form-group" role="search">
+    <div class="card-search">
+      {{input value=cardSearch class="form-control" placeholder="Search Cards"}}
+    </div>
+  </form>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    {{#each filteredCards as |cardUser|}}
+      {{my-collection-card addCard="addCard" cardUser=cardUser userCards=userCards session=session card=cardUser.card}}
+    {{/each}}
+  </div>
+</div>

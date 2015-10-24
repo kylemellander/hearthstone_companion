@@ -8,5 +8,6 @@ export default DS.Model.extend({
   cost: DS.attr('number'),
   cardType: DS.attr(),
   img: DS.attr(),
-  hearthstoneId: DS.attr()
+  hearthstoneId: DS.attr(),
+  belongsTo: DS.attr('cardUser', {async: true})
 });

@@ -1,3 +1,32 @@
 html, body {
   margin: 20px;
 }
+a {
+  cursor:pointer;
+}
+a.card.Common{
+  color: #0faf03
+}
+a.card.Rare {
+  color: #198eff;
+}
+a.card.Epic {
+  color: #ab48ee;
+}
+a.card.Legendary {
+  color: #f07000;
+}
+a.card.Basic {
+  color: #8E8E8E;
+}
+.hover-image img{
+  display:none;
+  white-space: nowrap;
+  position:absolute;
+  width: 140px;
+  height: auto;
+}
+.active {
+  color:#E6CC80 !important;
+  font-weight: bold;
+}

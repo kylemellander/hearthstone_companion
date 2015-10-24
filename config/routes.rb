@@ -4,4 +4,5 @@ MyBackend::Application.routes.draw do
   resources :cards
   get 'login' => "ember#index"
   get 'collection' => "ember#index"
+  resources :card_users
 end

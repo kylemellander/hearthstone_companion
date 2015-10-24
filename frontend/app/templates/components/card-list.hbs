@@ -1,0 +1,70 @@
+<h3 class="section-headers">All Cards</h3>
+
+<div class="sort-box">
+  <p>
+    Set:
+    <a {{action 'setCardSet' ""}} class="set-display All active">All</a>
+    <a {{action 'setCardSet' "Classic"}} class="set-display Classic">Classic</a>
+    <a {{action 'setCardSet' "Naxxramas"}} class="set-display Naxx">Naxx</a>
+    <a {{action 'setCardSet' "Goblins vs Gnomes"}} class="set-display GVG">GVG</a>
+    <a {{action 'setCardSet' "Blackrock Mountain"}} class="set-display BRM">BRM</a>
+    <a {{action 'setCardSet' "The Grand Tournament"}} class="set-display TGT">TGT</a>
+  </p>
+
+  <p>
+    Class:
+    <a {{action 'setCardClass' "All"}} class="class-display active All">All</a>
+    <a {{action 'setCardClass' ""}} class="class-display Neutral">Neutral</a>
+    <a {{action 'setCardClass' "Druid"}} class="class-display Druid">Druid</a>
+    <a {{action 'setCardClass' "Hunter"}} class="class-display Hunter">Hunter</a>
+    <a {{action 'setCardClass' "Mage"}} class="class-display Mage">Mage</a>
+    <a {{action 'setCardClass' "Paladin"}} class="class-display Paladin">Paladin</a>
+    <a {{action 'setCardClass' "Priest"}} class="class-display Priest">Priest</a>
+    <a {{action 'setCardClass' "Rogue"}} class="class-display Rogue">Rogue</a>
+    <a {{action 'setCardClass' "Shaman"}} class="class-display Shaman">Shaman</a>
+    <a {{action 'setCardClass' "Warlock"}} class="class-display Warlock">Warlock</a>
+    <a {{action 'setCardClass' "Warrior"}} class="class-display Warrior">Warrior</a>
+  </p>
+
+  <p>
+    Rarity:
+    <a {{action 'setCardRarity' "All"}} class="rarity-display active All">All</a>
+    <a {{action 'setCardRarity' "Basic"}} class="rarity-display Basic">Basic</a>
+    <a {{action 'setCardRarity' "Common"}} class="rarity-display Common">Common</a>
+    <a {{action 'setCardRarity' "Rare"}} class="rarity-display Rare">Rare</a>
+    <a {{action 'setCardRarity' "Epic"}} class="rarity-display Epic">Epic</a>
+    <a {{action 'setCardRarity' "Legendary"}} class="rarity-display Legendary">Legendary</a>
+  </p>
+
+  <p>
+    Cost:
+    <a {{action 'setCardCost' "All"}} class="cost-display active All">All</a>
+    <a {{action 'setCardCost' 0}} class="cost-display 0">0</a>
+    <a {{action 'setCardCost' 1}} class="cost-display 1">1</a>
+    <a {{action 'setCardCost' 2}} class="cost-display 2">2</a>
+    <a {{action 'setCardCost' 3}} class="cost-display 3">3</a>
+    <a {{action 'setCardCost' 4}} class="cost-display 4">4</a>
+    <a {{action 'setCardCost' 5}} class="cost-display 5">5</a>
+    <a {{action 'setCardCost' 6}} class="cost-display 6">6</a>
+    <a {{action 'setCardCost' 7}} class="cost-display 7">7+</a>
+  </p>
+
+</div>
+
+<div>
+  <form id="cardSearchField" class="form-group" role="search">
+    <div class="card-search">
+      {{input value=cardSearch class="form-control" placeholder="Search Cards"}}
+    </div>
+  </form>
+</div>
+
+{{input type="checkbox" checked=hideOwned}} Hide Owned
+
+<div class="container-fluid">
+  <div class="row">
+    {{#each filteredCards as |card|}}
+        {{card-list-card addCard="addCard" userCards=userCards session=session card=card hideOwned=hideOwned}}
+    {{/each}}
+  </div>
+</div>
