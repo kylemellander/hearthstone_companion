@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('collection-loading');
   this.route('stats');
   this.route('deckslist');
+  this.route('deck', {path: '/deck/:id'});
 });
 
 export default Router;

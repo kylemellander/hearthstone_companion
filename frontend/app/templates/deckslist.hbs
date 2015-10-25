@@ -1,5 +1,8 @@
 {{#each model.decks as |deck|}}
-  {{deck.name}}
+  <div>
+    {{#link-to 'deck' deck}}{{deck.name}}{{/link-to}}
+    {{{new-deck deck}}}
+  </div>
   {{#each deck.cardDecks as |cardDeck|}}
     {{cardDeck.count}} x {{cardDeck.card.name}}
   {{/each}}
