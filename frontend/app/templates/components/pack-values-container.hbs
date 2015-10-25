@@ -1,0 +1,17 @@
+<h3>Pack informations</h3>
+
+<div>You should buy: {{bestPack}}</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      {{pack-values cards=model.cards cardUsers=model.cardUsers title="Classic" packValueSet="packValueSet"}}
+    </div>
+    <div class="col-sm-4">
+      {{pack-values cards=model.cards cardUsers=model.cardUsers title="Goblins vs Gnomes" packValueSet="packValueSet"}}
+    </div>
+    <div class="col-sm-4">
+      {{pack-values cards=model.cards cardUsers=model.cardUsers title="The Grand Tournament" packValueSet="packValueSet"}}
+    </div>
+  </div>
+</div>

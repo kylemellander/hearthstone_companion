@@ -59,4 +59,15 @@ export default Ember.Component.extend({
   rarePercent: 22.91,
   epicPercent: 4.49,
   legendaryPercent: 1.19,
+  dustValueOfPack: Ember.computed(function() {
+    return Math.round(5 * (this.get('commonValue') * this.get('commonPercent')/100 +
+           this.get('rareValue') * this.get('rarePercent')/100 +
+           this.get('epicValue') * this.get('epicPercent')/100 +
+           this.get('legendaryValue') * this.get('legendaryPercent')/100)*100)/100;
+  }),
+  willInsertElement() {
+    var packType = this.get('title');
+    var packValue = this.get('dustValueOfPack');
+    this.sendAction("packValueSet", packType, packValue);
+  }
 });
