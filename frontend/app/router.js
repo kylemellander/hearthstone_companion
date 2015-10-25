@@ -6,11 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('protected');
   this.route('login');
   this.route('collection');
   this.route('scrape');
   this.route('packs');
+  this.route('collection-loading');
+  this.route('stats');
+  this.route('decks');
 });
 
 export default Router;

@@ -1,6 +1,9 @@
 <h2 id='title'>Frontend</h2>
 {{#link-to 'index'}}Home{{/link-to}}
 {{#link-to 'collection'}}Collection{{/link-to}}
+{{#link-to 'packs'}}Pack Info{{/link-to}}
+{{#link-to 'stats'}}Collection Stats{{/link-to}}
+{{#link-to 'decks'}}Decks{{/link-to}}
 {{#link-to 'scrape'}}Scrape{{/link-to}}
 
 {{#if session.isAuthenticated}}
@@ -13,4 +16,6 @@
 
 <div id="messages"></div>
 
-{{outlet}}
+<div class="main-container">
+  {{outlet}}
+</div>
