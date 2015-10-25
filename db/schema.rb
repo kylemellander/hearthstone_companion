@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024000013) do
+ActiveRecord::Schema.define(version: 20151025051129) do
+
+  create_table "card_decks", force: :cascade do |t|
+    t.integer  "deck_id"
+    t.integer  "card_id"
+    t.integer  "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "card_decks", ["card_id"], name: "index_card_decks_on_card_id"
+  add_index "card_decks", ["deck_id"], name: "index_card_decks_on_deck_id"
 
   create_table "card_users", force: :cascade do |t|
     t.integer "card_id"
@@ -30,6 +41,15 @@ ActiveRecord::Schema.define(version: 20151024000013) do
     t.string   "hearthstone_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "decks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "player_class"
+    t.string   "remote_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deck_id: 
+  card_id: 
+  count: 1
+
+two:
+  deck_id: 
+  card_id: 
+  count: 1

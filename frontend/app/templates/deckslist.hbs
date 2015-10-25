@@ -1,0 +1,8 @@
+{{#each model.decks as |deck|}}
+  {{deck.name}}
+  {{#each deck.cardDecks as |cardDeck|}}
+    {{cardDeck.count}} x {{cardDeck.card.name}}
+  {{/each}}
+{{/each}}
+
+<a {{action 'test' model}}>test</a>

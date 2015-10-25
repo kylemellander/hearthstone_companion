@@ -12,7 +12,7 @@ Router.map(function() {
   this.route('packs');
   this.route('collection-loading');
   this.route('stats');
-  this.route('decks');
+  this.route('deckslist');
 });
 
 export default Router;
