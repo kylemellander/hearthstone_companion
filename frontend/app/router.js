@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('login');
   this.route('collection');
   this.route('scrape');
+  this.route('packs');
 });
 
 export default Router;
