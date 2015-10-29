@@ -23,42 +23,25 @@ class DecksController < ApplicationController
     end
   end
 
-  # GET /decks/new
-  def new
-    @deck = Deck.new
-  end
-
-  # GET /decks/1/edit
-  def edit
-  end
-
   # POST /decks
   # POST /decks.json
   def create
     @deck = Deck.new(deck_params)
 
-    respond_to do |format|
-      if @deck.save
-        format.html { redirect_to @deck, notice: 'Deck was successfully created.' }
-        format.json { render json: @deck, status: :created }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
-      end
+    if @deck.save
+      render json: @deck, status: :created
+    else
+      render json: @deck.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /decks/1
   # PATCH/PUT /decks/1.json
   def update
-    respond_to do |format|
-      if @deck.update(deck_params)
-        format.html { redirect_to @deck, notice: 'Deck was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
-      end
+    if @deck.update(deck_params)
+      render json: @deck
+    else
+      render json: @deck.errors, status: :unprocessable_entity
     end
   end
 

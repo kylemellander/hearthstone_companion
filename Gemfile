@@ -31,4 +31,5 @@ group :test do
   gem 'simplecov', :require => false
   gem 'faker'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end

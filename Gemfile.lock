@@ -52,6 +52,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.1.0)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -188,6 +189,7 @@ DEPENDENCIES
   active_model_serializers
   byebug
   capybara
+  database_cleaner
   devise
   ember-cli-rails
   factory_girl_rails

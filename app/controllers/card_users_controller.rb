@@ -30,7 +30,6 @@ class CardUsersController < ApplicationController
 
   def update
     if user && Devise.secure_compare(user.authentication_token, token)
-      binding.pry
       card_user = user.card_users.where(card_id: card_user_params[:card_id].to_i)[0]
       card_user.update({count: card_user_params[:count]})
       render json: card_user

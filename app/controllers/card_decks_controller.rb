@@ -15,13 +15,17 @@ class CardDecksController < ApplicationController
   def token
     if !env["HTTP_AUTHORIZATION"].nil?
       env["HTTP_AUTHORIZATION"].split('"')[1]
+    elsif !request.env["rack.session"].nil? && !request.env["rack.session"]["HTTP_AUTHORIZATION"].nil?
+
+      request.env["rack.session"]["HTTP_AUTHORIZATION"].split('"')[1]
     end
   end
 
   def user_email
-    binding.pry
     if !env["HTTP_AUTHORIZATION"].nil?
       env["HTTP_AUTHORIZATION"].split('"')[3]
+    elsif !request.env["rack.session"].nil? && !request.env["rack.session"]["HTTP_AUTHORIZATION"].nil?
+      request.env["rack.session"]["HTTP_AUTHORIZATION"].split('"')[3]
     end
   end
 
