@@ -4,7 +4,6 @@ class CardUsersController < ApplicationController
       @card_users = user.card_users
       render json: @card_users
     else
-
       render json: {"error": "You are not logged in."}
     end
   end
@@ -31,30 +30,41 @@ class CardUsersController < ApplicationController
 
   def update
     if user && Devise.secure_compare(user.authentication_token, token)
-      user.card_users.where(card_id: card_user_params[:card_id].to_i)[0].update({count: card_user_params[:count]})
-      head :no_content
+      binding.pry
+      card_user = user.card_users.where(card_id: card_user_params[:card_id].to_i)[0]
+      card_user.update({count: card_user_params[:count]})
+      render json: card_user
     else
       render json: {"error": "You are not logged in."}
     end
   end
 
-  def destroy
-    if user && Devise.secure_compare(user.authentication_token, token)
-      CardUser.find(params[:id].to_i).destroy
-      head :no_content
-    else
-      render json: {"error": "You are not logged in."}
-    end
-  end
+  # def destroy
+  #   if user && Devise.secure_compare(user.authentication_token, token)
+  #     CardUser.find(params[:id].to_i).destroy
+  #     head :no_content
+  #   else
+  #     render json: {"error": "You are not logged in."}
+  #   end
+  # end
 
   private
 
   def token
-    env["HTTP_AUTHORIZATION"].split('"')[1]
+    if !env["HTTP_AUTHORIZATION"].nil?
+      env["HTTP_AUTHORIZATION"].split('"')[1]
+    elsif !request.env["rack.session"].nil? && !request.env["rack.session"]["HTTP_AUTHORIZATION"].nil?
+
+      request.env["rack.session"]["HTTP_AUTHORIZATION"].split('"')[1]
+    end
   end
 
   def user_email
-    env["HTTP_AUTHORIZATION"].split('"')[3]
+    if !env["HTTP_AUTHORIZATION"].nil?
+      env["HTTP_AUTHORIZATION"].split('"')[3]
+    elsif !request.env["rack.session"].nil? && !request.env["rack.session"]["HTTP_AUTHORIZATION"].nil?
+      request.env["rack.session"]["HTTP_AUTHORIZATION"].split('"')[3]
+    end
   end
 
   def user

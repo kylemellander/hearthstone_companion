@@ -62,15 +62,15 @@ class DecksController < ApplicationController
     end
   end
 
-  # DELETE /decks/1
-  # DELETE /decks/1.json
-  def destroy
-    @deck.destroy
-    respond_to do |format|
-      format.html { redirect_to decks_url }
-      format.json { head :no_content }
-    end
-  end
+  # # DELETE /decks/1
+  # # DELETE /decks/1.json
+  # def destroy
+  #   @deck.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to decks_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
