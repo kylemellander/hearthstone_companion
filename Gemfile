@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-gem 'sqlite3'
+gem 'pg'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -13,4 +13,5 @@ gem 'active_model_serializers'
 group :development do
   gem 'rack-cors', require: 'rack/cors'
   gem 'pry'
+  gem 'seed_dump'
 end

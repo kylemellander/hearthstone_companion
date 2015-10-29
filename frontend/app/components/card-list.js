@@ -47,34 +47,39 @@ export default Ember.Component.extend({
     setCardSet(str) {
       var names = {"": "All", "Classic": "Classic", "Naxxramas": "Naxx", "Goblins vs Gnomes": "GVG", "Blackrock Mountain": "BRM", "The Grand Tournament": "TGT"};
       this.set('cardSet', str);
-      $(".set-display").removeClass("active");
+      Ember.$(".set-display").removeClass("active");
       var thisClass = ".set-display." + names[str];
-      $(thisClass).addClass("active");
+      Ember.$(thisClass).addClass("active");
     },
     setCardClass(str) {
       this.set('cardClass', str);
-      $(".class-display").removeClass("active");
+      Ember.$(".class-display").removeClass("active");
       if (str === "") {
-        $(".class-display.Neutral").addClass("active");
+        Ember.$(".class-display.Neutral").addClass("active");
       } else {
-        $(".class-display." + str).addClass("active");
+        Ember.$(".class-display." + str).addClass("active");
       }
     },
     setCardRarity(str) {
       this.set('cardRarity', str);
-      $(".rarity-display").removeClass("active");
-      $(".rarity-display." + str).addClass("active");
+      Ember.$(".rarity-display").removeClass("active");
+      Ember.$(".rarity-display." + str).addClass("active");
     },
     setCardCost(str) {
       this.set('cardCost', str);
-      $(".cost-display").removeClass("active");
-      $(".cost-display." + str).addClass("active");
+      Ember.$(".cost-display").removeClass("active");
+      Ember.$(".cost-display." + str).addClass("active");
     },
     addAll(filteredCards) {
       var userCards = this.get('userCards');
       var self = this;
+      var count
       filteredCards.forEach(function(card) {
-        if (card.get('rarity') === "Legendary") { var count = 1} else { var count = 2; };
+        if (card.get('rarity') === "Legendary") {
+          count = 1;
+        } else {
+          count = 2;
+        }
         self.sendAction('addCard', userCards, card, count);
       })
     }

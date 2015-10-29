@@ -34,6 +34,40 @@ export default Ember.Route.extend({
       cards: this.store.findAll('card')
     });
   },
+  afterModel(hash) {
+    var context = this;
+    hash.decks.forEach(function(deck) {
+      if(deck.get('cardDecks').get('length') === 0) {
+        var yql = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20data.html.cssselect" +
+        "%20WHERE%20url%3D'http%3A%2F%2Fwww.hearthpwn.com" +
+        deck.get('url').replace("http://www.hearthpwn.com/decks/", "%2Fdecks%2F") +
+        "'%20AND%20css%3D'table.listing-cards-tabular%20tbody%20tr'" +
+        "&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+        $.ajax({
+          dataType: 'json',
+          url: yql,
+        }).fail(function(error) { debugger; }).then(function(remoteDeck) {
+          var tr = remoteDeck.query.results.results.tr;
+          for(var k in tr) {
+            if(tr.hasOwnProperty(k)) {
+              var count = tr[k].td[0].content.replace(/[ ↵×]/gi, '');
+              var cardName = tr[k].td[0].b.a.content.replace("&#27;", "'");
+              var card = hash.cards.findBy('name', cardName);
+              var cardDeckParams = {card: card, deck: deck, count: count};
+              var newCardDeck = context.store.createRecord('cardDeck', cardDeckParams);
+              newCardDeck.save().catch(function(error) {debugger;}).then(function() {
+                deck.get('cardDecks').addObject(newCardDeck);
+                deck.save().then(function() {
+                  card.get('cardDecks').addObject(newCardDeck);
+                  card.save();
+                });
+              });
+            }
+          }
+        });
+      }
+    });
+  },
   actions: {
     test(model) {
       debugger;
