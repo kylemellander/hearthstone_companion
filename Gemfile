@@ -33,3 +33,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 end
+
+gem 'rails_12factor', group: [:staging, :production]
