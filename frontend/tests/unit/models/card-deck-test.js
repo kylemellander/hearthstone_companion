@@ -2,7 +2,7 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('card-deck', 'Unit | Model | card deck', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:card', 'model:deck']
 });
 
 test('it exists', function(assert) {

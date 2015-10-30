@@ -5,6 +5,6 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       cards: this.store.findAll('card'),
       cardUsers: this.store.findAll('cardUser')
-    })
+    });
   },
 });

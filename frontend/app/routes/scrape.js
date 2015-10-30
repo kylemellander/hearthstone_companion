@@ -6,25 +6,25 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     scrape() {
       if(this.get('session').isAuthenticated) {
         var context = this;
-        $.ajax({
+        Ember.$.ajax({
           beforeSend: function(request) {
             request.setRequestHeader("X-Mashape-Key", 'J5KEJHfdbymsh8nfjXGgbwooeaaNp1hPQEdjsn363la5ffVLkn');
           },
           dataType: 'json',
           url: 'https://omgvamp-hearthstone-v1.p.mashape.com/cards?collectible=1&locale=enUS',
         }).then(function(response) {
-          var newData = [];
+          var rarity, cardSet;
           for (var key in response) {
             if (response.hasOwnProperty(key)) {
               for (var prop in response[key]) {
                 if (response[key].hasOwnProperty(prop)) {
                   if (response[key][prop].type !== "Hero") {
                     if(response[key][prop].cardSet === "Basic") {
-                      var rarity = "Basic";
-                      var cardSet = "Classic";
+                      rarity = "Basic";
+                      cardSet = "Classic";
                     } else {
-                      var rarity = response[key][prop].rarity;
-                      var cardSet = response[key][prop].cardSet;
+                      rarity = response[key][prop].rarity;
+                      cardSet = response[key][prop].cardSet;
                     }
                     var params = {
                       hearthstoneId: response[key][prop].cardId,
@@ -42,10 +42,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                 }
               }
             }
-          };
-        })
+          }
+        });
       } else {
-        $('#messages').empty().append("You need to be logged in to scrape the cards").removeClass("success").addClass("error");
+        Ember.$('#messages').empty().append("You need to be logged in to scrape the cards").removeClass("success").addClass("error");
       }
     }
   }

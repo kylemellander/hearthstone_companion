@@ -11,30 +11,30 @@ var yourPlayableCalc = function(userCards, searchParam, searchValue) {
     }
   });
   return sum;
-}
+};
 var totalPlayableCalc = function(cards, searchParam, searchValue) {
   var sum = 0;
   cards.forEach(function(card) {
     if (card.get(searchParam) === searchValue) {
-      if (card.get('rarity') === "Legendary") { sum += 1 } else { sum += 2 }
+      if (card.get('rarity') === "Legendary") { sum += 1; } else { sum += 2; }
     }
   });
   return sum;
-}
+};
 var yourUniqueCalc = function(userCards, searchParam, searchValue) {
   var sum = 0;
   userCards.forEach(function(joinItem) {
-    if (joinItem.get('card').get(searchParam) === searchValue) { sum += 1 }
+    if (joinItem.get('card').get(searchParam) === searchValue) { sum += 1; }
   });
   return sum;
-}
+};
 var totalUniqueCalc = function(cards, searchParam, searchValue) {
   var sum = 0;
   cards.forEach(function(card) {
-    if (card.get(searchParam) === searchValue) { sum += 1 }
+    if (card.get(searchParam) === searchValue) { sum += 1; }
   });
   return sum;
-}
+};
 
 export default Ember.Component.extend({
   yourPlayable: Ember.computed('userCards', function() {
@@ -45,7 +45,7 @@ export default Ember.Component.extend({
   totalPlayable: Ember.computed(function() {
     var count = 0;
     this.get('cards').forEach(function(card) {
-      if (card.get('rarity') === "Legendary") { count += 1 } else { count += 2 };
+      if (card.get('rarity') === "Legendary") { count += 1; } else { count += 2; }
     });
     return count;
   }),

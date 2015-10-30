@@ -5,14 +5,12 @@ export default Ember.Route.extend({
     signup() {
       var email = this.controller.identification;
       var password = this.controller.password;
-
       var user = this.store.createRecord('user', {
         email: email,
         password: password
       });
-
       user.save().catch(function(response) {
-        user.set('password', "[protected]")
+        user.set('password', "[protected]");
         var message = "<ul>";
         response.errors.forEach(function(error) {
           if (error.source.pointer === "/data/attributes/email") {
@@ -22,21 +20,20 @@ export default Ember.Route.extend({
           }
         });
         message += "</ul>";
-        $('#messages').empty().append(message).removeClass("success").addClass("error");
+        Ember.$('#messages').empty().append(message).removeClass("success").addClass("error");
       }).then(function(response) {
-        user.set('password', "[protected]")
+        user.set('password', "[protected]");
         if (response) {
-          $('#messages').empty().append("Your account has been created successfully!").removeClass("error").addClass("success");
+          Ember.$('#messages').empty().append("Your account has been created successfully!").removeClass("error").addClass("success");
         }
       });
     },
     authenticate() {
       var data = {identification: this.controller.identification, password: this.controller.password };
-      return this.get('session').authenticate('simple-auth-authenticator:devise', data).then(function(response) {
-        $('#messages').empty().append("You are successfully logged in.").removeClass("error").addClass("success");
-      }, function(reason) {
-        $('#messages').empty().append("Your username and/or password are incorrect.").removeClass("success").addClass("error");
-        // rejection
+      return this.get('session').authenticate('simple-auth-authenticator:devise', data).then(function() {
+        Ember.$('#messages').empty().append("You are successfully logged in.").removeClass("error").addClass("success");
+      }, function() {
+        Ember.$('#messages').empty().append("Your username and/or password are incorrect.").removeClass("success").addClass("error");
       });
     }
   }

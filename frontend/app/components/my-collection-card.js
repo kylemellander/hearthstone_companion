@@ -15,7 +15,7 @@ export default Ember.Component.extend({
     return false;
   },
   mouseMove: function(e) {
-    this.$('.img-container').append('<img src="'+this.get('cardUser').get('card').get('img')+'">')
+    this.$('.img-container').append('<img src="'+this.get('cardUser').get('card').get('img')+'">');
     this.$('.hover-image img').stop(1,1).fadeIn();
     this.$('.hover-image img').offset({
       top: e.pageY + 3,

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  beforeModel(data) {
+  beforeModel() {
     var context = this;
     $.ajax({
       dataType: 'json',
@@ -17,13 +17,13 @@ export default Ember.Route.extend({
           url: url,
           playerClass: deck.td[3].content,
           remoteId: id
-        }
+        };
         context.store.queryRecord('deck', {filter: {remote_id: id}}).then(function(deck) {
           if ( deck === undefined ) {
             var newDeck = context.store.createRecord('deck', params);
             newDeck.save();
           }
-        })
+        });
       });
     });
   },
@@ -46,22 +46,18 @@ export default Ember.Route.extend({
         $.ajax({
           dataType: 'json',
           url: yql,
-        }).fail(function(error) { debugger; }).then(function(remoteDeck) {
+        }).fail(function(error) {
+          debugger;
+        }).then(function(remoteDeck) {
           var tr = remoteDeck.query.results.results.tr;
           for(var k in tr) {
             if(tr.hasOwnProperty(k)) {
-              var count = tr[k].td[0].content.replace(/[ ↵×]/gi, '');
-              var cardName = tr[k].td[0].b.a.content.replace("&#27;", "'");
+              var count = parseInt(tr[k].td[0].content.replace(/\D/gi, ''));
+              var cardName = tr[k].td[0].b.a.content.replace("&#27;", "'").trim();
               var card = hash.cards.findBy('name', cardName);
               var cardDeckParams = {card: card, deck: deck, count: count};
               var newCardDeck = context.store.createRecord('cardDeck', cardDeckParams);
-              newCardDeck.save().catch(function(error) {debugger;}).then(function() {
-                deck.get('cardDecks').addObject(newCardDeck);
-                deck.save().then(function() {
-                  card.get('cardDecks').addObject(newCardDeck);
-                  card.save();
-                });
-              });
+              newCardDeck.save();
             }
           }
         });
@@ -69,8 +65,7 @@ export default Ember.Route.extend({
     });
   },
   actions: {
-    test(model) {
-      debugger;
+    test() {
     }
   }
 });

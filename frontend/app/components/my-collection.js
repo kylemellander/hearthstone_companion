@@ -40,28 +40,28 @@ export default Ember.Component.extend({
     setCardSet(str) {
       var names = {"": "All", "Classic": "Classic", "Naxxramas": "Naxx", "Goblins vs Gnomes": "GVG", "Blackrock Mountain": "BRM", "The Grand Tournament": "TGT"};
       this.set('cardSet', str);
-      $(".set-link").removeClass("active");
+      Ember.$(".set-link").removeClass("active");
       var thisClass = ".set-link." + names[str];
-      $(thisClass).addClass("active");
+      Ember.$(thisClass).addClass("active");
     },
     setCardClass(str) {
       this.set('cardClass', str);
-      $(".class-link").removeClass("active");
+      Ember.$(".class-link").removeClass("active");
       if (str === "") {
-        $(".class-link.Neutral").addClass("active");
+        Ember.$(".class-link.Neutral").addClass("active");
       } else {
-        $(".class-link." + str).addClass("active");
+        Ember.$(".class-link." + str).addClass("active");
       }
     },
     setCardRarity(str) {
       this.set('cardRarity', str);
-      $(".rarity-link").removeClass("active");
-      $(".rarity-link." + str).addClass("active");
+      Ember.$(".rarity-link").removeClass("active");
+      Ember.$(".rarity-link." + str).addClass("active");
     },
     setCardCost(str) {
       this.set('cardCost', str);
-      $(".cost-link").removeClass("active");
-      $(".cost-link." + str).addClass("active");
+      Ember.$(".cost-link").removeClass("active");
+      Ember.$(".cost-link." + str).addClass("active");
     }
   }
 });

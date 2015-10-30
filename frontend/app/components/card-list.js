@@ -14,7 +14,6 @@ export default Ember.Component.extend({
   submit: function(e) {
     e.preventDefault();
   },
-
   filteredCards: Ember.computed.filter('sortedCards', function(card) {
     var search = this.get('cardSearch').toLowerCase();
     return  card.get('name').toLowerCase().indexOf(search) > -1 &&
@@ -47,33 +46,33 @@ export default Ember.Component.extend({
     setCardSet(str) {
       var names = {"": "All", "Classic": "Classic", "Naxxramas": "Naxx", "Goblins vs Gnomes": "GVG", "Blackrock Mountain": "BRM", "The Grand Tournament": "TGT"};
       this.set('cardSet', str);
-      Ember.$(".set-display").removeClass("active");
+      this.$(".set-display").removeClass("active");
       var thisClass = ".set-display." + names[str];
-      Ember.$(thisClass).addClass("active");
+      this.$(thisClass).addClass("active");
     },
     setCardClass(str) {
       this.set('cardClass', str);
-      Ember.$(".class-display").removeClass("active");
+      this.$(".class-display").removeClass("active");
       if (str === "") {
-        Ember.$(".class-display.Neutral").addClass("active");
+        this.$(".class-display.Neutral").addClass("active");
       } else {
-        Ember.$(".class-display." + str).addClass("active");
+        this.$(".class-display." + str).addClass("active");
       }
     },
     setCardRarity(str) {
       this.set('cardRarity', str);
-      Ember.$(".rarity-display").removeClass("active");
-      Ember.$(".rarity-display." + str).addClass("active");
+      this.$(".rarity-display").removeClass("active");
+      this.$(".rarity-display." + str).addClass("active");
     },
     setCardCost(str) {
       this.set('cardCost', str);
-      Ember.$(".cost-display").removeClass("active");
-      Ember.$(".cost-display." + str).addClass("active");
+      this.$(".cost-display").removeClass("active");
+      this.$(".cost-display." + str).addClass("active");
     },
     addAll(filteredCards) {
       var userCards = this.get('userCards');
       var self = this;
-      var count
+      var count;
       filteredCards.forEach(function(card) {
         if (card.get('rarity') === "Legendary") {
           count = 1;
@@ -81,7 +80,7 @@ export default Ember.Component.extend({
           count = 2;
         }
         self.sendAction('addCard', userCards, card, count);
-      })
+      });
     }
   }
 });

@@ -6,12 +6,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return Ember.RSVP.hash({
       cards: this.store.findAll('card'),
       cardUsers: this.store.findAll('cardUser')
-    })
+    });
   },
   actions: {
     addCard(userCards, card, count) {
       var found = false;
-      var self = this;
       userCards.content.forEach(function(userCard) {
         var currentUserCard = userCard.record;
         if (currentUserCard.get('card').get('id') === card.get('id')) {
@@ -24,11 +23,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           }
           found = true;
         }
-      })
+      });
       if (found === false && count > 0) {
         var cardUserParams = {card: card, count: count};
         var newCardUser = this.store.createRecord('cardUser', cardUserParams);
-        newCardUser.save()
+        newCardUser.save();
       }
     }
   }
