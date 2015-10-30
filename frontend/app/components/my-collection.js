@@ -13,8 +13,9 @@ export default Ember.Component.extend({
     e.preventDefault();
   },
   filteredCards: Ember.computed.filter('sortedCards', function(userCard) {
-    var search = this.get('cardSearch').toLowerCase();
-    return  userCard.get('card').get('name').toLowerCase().indexOf(search) > -1 &&
+
+    var search = this.get('cardSearch') || "";
+    return  userCard.get('card').get('name').toLowerCase().indexOf(search.toLowerCase()) > -1 &&
             (this.get('cardSet') === "" ||
             userCard.get('card').get('cardSet') === this.get('cardSet')) &&
             (this.get('cardClass') === "All" ||

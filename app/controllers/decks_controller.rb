@@ -4,11 +4,18 @@ class DecksController < ApplicationController
   # GET /decks
   # GET /decks.json
   def index
-    decks = Deck.all
     if params[:filter] != nil && params[:filter][:remote_id] != nil
-      @decks = decks.where(remote_id: params[:filter].values[0])
+      @decks = Deck.where("remote_id = ?", params[:filter].values[0])
     else
-      @decks = decks
+      @decks = Deck.all
+    end
+
+    if params[:start] != nil
+      end_point = params[:start].to_i + params[:limit].to_i
+      if @decks.length <= end_point
+        end_point = @decks.length - 1
+      end
+      @decks = @decks[params[:start].to_i, end_point]
     end
 
     render json: @decks
@@ -17,10 +24,7 @@ class DecksController < ApplicationController
   # GET /decks/1
   # GET /decks/1.json
   def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @deck }
-    end
+    render json: @deck
   end
 
   # POST /decks

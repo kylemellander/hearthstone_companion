@@ -10,4 +10,5 @@ MyBackend::Application.routes.draw do
   get 'packs' => 'ember#index'
   get 'deckslist' => 'ember#index'
   get 'stats' => 'ember#index'
+  get 'deck/:id' => 'ember#index'
 end

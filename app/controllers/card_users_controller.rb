@@ -38,14 +38,14 @@ class CardUsersController < ApplicationController
     end
   end
 
-  # def destroy
-  #   if user && Devise.secure_compare(user.authentication_token, token)
-  #     CardUser.find(params[:id].to_i).destroy
-  #     head :no_content
-  #   else
-  #     render json: {"error": "You are not logged in."}
-  #   end
-  # end
+  def destroy
+    if user && Devise.secure_compare(user.authentication_token, token)
+      CardUser.find(params[:id].to_i).destroy
+      head :no_content
+    else
+      render json: {"error": "You are not logged in."}
+    end
+  end
 
   private
 
