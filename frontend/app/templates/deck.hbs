@@ -1,5 +1,5 @@
-<h1>{{model.name}}</h1>
-<a href="{{model.url}}">See on hearthpwn.com</a>
-{{#each model.cardDecks as |cardDeck|}}
+<h1>{{model.deck.name}}</h1>
+<a href="{{model.deck.url}}">See on hearthpwn.com</a>
+{{#each model.deck.cardDecks as |cardDeck|}}
   <div>{{cardDeck.count}} x {{cardDeck.card.name}}</div>
 {{/each}}
