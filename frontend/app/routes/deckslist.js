@@ -46,8 +46,6 @@ export default Ember.Route.extend({
         $.ajax({
           dataType: 'json',
           url: yql,
-        }).fail(function(error) {
-          debugger;
         }).then(function(remoteDeck) {
           var tr = remoteDeck.query.results.results.tr;
           for(var k in tr) {
