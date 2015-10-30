@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-gem 'pg'
-gem 'devise'
-gem 'ember-cli-rails'
-gem 'active_model_serializers'
+gem 'pg', '0.18.3'
+gem 'devise', '3.5.2'
+gem 'ember-cli-rails', '0.4.0'
+gem 'active_model_serializers', '0.9.3'
+gem 'rails_12factor', group: [:staging, :production]
 
 group :development do
   gem 'rack-cors', require: 'rack/cors'
@@ -29,5 +30,3 @@ group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 end
-
-gem 'rails_12factor', group: [:staging, :production]

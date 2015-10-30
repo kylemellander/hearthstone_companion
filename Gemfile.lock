@@ -187,16 +187,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers
+  active_model_serializers (= 0.9.3)
   byebug
   capybara
   database_cleaner
-  devise
-  ember-cli-rails
+  devise (= 3.5.2)
+  ember-cli-rails (= 0.4.0)
   factory_girl_rails
   faker
   launchy
-  pg
+  pg (= 0.18.3)
   pry
   quiet_assets
   rack-cors
