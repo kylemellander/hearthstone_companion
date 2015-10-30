@@ -4,10 +4,12 @@
 </div>
 
 <div>
-  <div>Total Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "total"}}/{{cards-in-deck-by-type cardDecks "total"}}</div>
-  <div>Legendary Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Legendary"}}/{{cards-in-deck-by-type cardDecks "Legendary"}}</div>
-  <div>Epic Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Epic"}}/{{cards-in-deck-by-type cardDecks "Epic"}}</div>
-  <div>Rare Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Rare"}}/{{cards-in-deck-by-type cardDecks "Rare"}}</div>
-  <div>Common Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Common"}}/{{cards-in-deck-by-type cardDecks "Common"}}</div>
   <div>Basic Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Basic"}}/{{cards-in-deck-by-type cardDecks "Basic"}}</div>
+  <div>Common Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Common"}}/{{cards-in-deck-by-type cardDecks "Common"}}</div>
+  <div>Rare Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Rare"}}/{{cards-in-deck-by-type cardDecks "Rare"}}</div>
+  <div>Epic Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Epic"}}/{{cards-in-deck-by-type cardDecks "Epic"}}</div>
+  <div>Legendary Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "Legendary"}}/{{cards-in-deck-by-type cardDecks "Legendary"}}</div>
+  <div>Total Cards: {{cards-in-deck-you-have-by-type cardsYouHave cardDecks "total"}}/{{cards-in-deck-by-type cardDecks "total"}}</div>
+  <div>Dust Cost: {{deck-dust-cost (cards-in-deck-by-type cardDecks "Common") (cards-in-deck-by-type cardDecks "Rare") (cards-in-deck-by-type cardDecks "Epic") (cards-in-deck-by-type cardDecks "Legendary")}}</div>
+  <div>Dust Needed: {{dust-needed (deck-dust-cost (cards-in-deck-you-have-by-type cardsYouHave cardDecks "Common") (cards-in-deck-you-have-by-type cardsYouHave cardDecks "Rare") (cards-in-deck-you-have-by-type cardsYouHave cardDecks "Epic") (cards-in-deck-you-have-by-type cardsYouHave cardDecks "Legendary")) (deck-dust-cost (cards-in-deck-by-type cardDecks "Common") (cards-in-deck-by-type cardDecks "Rare") (cards-in-deck-by-type cardDecks "Epic") (cards-in-deck-by-type cardDecks "Legendary"))}}</div>
 </div>
