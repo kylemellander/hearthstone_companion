@@ -1,11 +1,3 @@
 {{#each model.decks as |deck|}}
-  <div>
-    {{#link-to 'deck' deck}}{{deck.name}}{{/link-to}}
-    {{{new-deck deck}}}
-  </div>
-  {{#each deck.cardDecks as |cardDeck|}}
-    {{cardDeck.count}} x {{cardDeck.card.name}}
-  {{/each}}
+  {{deck-preview model=model deck=deck cardDecks=deck.cardDecks cardUsers=model.cardUsers session=session}}
 {{/each}}
-
-<a {{action 'test' model}}>test</a>

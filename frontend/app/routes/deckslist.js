@@ -13,7 +13,7 @@ export default Ember.Route.extend({
         var id = partialUrl.replace("/decks/", "").split("-")[0];
         var url = "http://www.hearthpwn.com" + partialUrl;
         var params = {
-          name: deck.td[0].div.span.a.content,
+          name: deck.td[0].div.span.a.content.replace("&#27;", "'"),
           url: url,
           playerClass: deck.td[3].content,
           remoteId: id
