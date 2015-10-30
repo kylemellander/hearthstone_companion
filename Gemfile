@@ -2,10 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
 gem 'pg'
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
 gem 'devise'
 gem 'ember-cli-rails'
 gem 'active_model_serializers'
