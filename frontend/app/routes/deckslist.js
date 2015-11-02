@@ -49,7 +49,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       decks: this.store.query('deck', query ),
       cardUsers: this.store.findAll('cardUser'),
-      cards: this.store.findAll('card')
+      cards: this.store.findAll('card'),
     });
   },
   afterModel(hash) {
