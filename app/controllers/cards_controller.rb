@@ -5,6 +5,10 @@ class CardsController < ApplicationController
     render json: @cards
   end
 
+  def show
+    @card = Card.find(params[:id])
+  end
+
   def create
     @card = Card.find_or_initialize_by(name: card_params[:name])
     @card.update(card_params)

@@ -1,3 +1,14 @@
-{{#each model.decks as |deck|}}
+{{#link-to "deckslist" (query-params playerClass=null)}}All{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Druid")}}Druid{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Hunter")}}Hunter{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Mage")}}Mage{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Paladin")}}Paladin{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Priest")}}Priest{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Rogue")}}Rogue{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Shaman")}}Shaman{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Warlock")}}Warlock{{/link-to}}
+{{#link-to "deckslist" (query-params playerClass="Warrior")}}Warrior{{/link-to}}
+
+{{#each filteredDecks as |deck|}}
   {{deck-preview model=model deck=deck cardDecks=deck.cardDecks cardUsers=model.cardUsers session=session}}
 {{/each}}

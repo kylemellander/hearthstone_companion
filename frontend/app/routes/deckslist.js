@@ -1,11 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  beforeModel() {
+  beforeModel(transition) {
+    var playerClass = transition.queryParams.playerClass;
     var context = this;
+    var originUrl = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20data.html.cssselect%20WHERE%20url%3D'http%3A%2F%2Fwww.hearthpwn.com%2Fdecks";
+    if (playerClass) {
+      originUrl += "%3Ffilter-class%3D";
+      var classHash = {"Druid": "4", "Hunter": "8", "Mage": "16", "Paladin": "32", "Priest": "64", "Rogue": "128", "Shaman": "256", "Warlock": "512", "Warrior": "1024"};
+      originUrl += classHash[playerClass];
+    }
+    originUrl += "'%20AND%20css%3D'table.listing-decks%20tbody%20tr'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
     $.ajax({
       dataType: 'json',
-      url: "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20data.html.cssselect%20WHERE%20url%3D'http%3A%2F%2Fwww.hearthpwn.com%2Fdecks'%20AND%20css%3D'table.listing-decks%20tbody%20tr'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
+      url: originUrl
     }).then(function(jsonDecks) {
       var remoteDecks = jsonDecks.query.results.results.tr;
       remoteDecks.forEach(function(deck) {
@@ -26,10 +34,20 @@ export default Ember.Route.extend({
         });
       });
     });
+    return playerClass;
   },
-  model() {
+  queryParams: {
+    playerClass: {
+      refreshModel: true
+    }
+  },
+  model(params) {
+    var query = {start: 0, limit: 25};
+    if (params.playerClass) {
+      query["player_class"] = params.playerClass;
+    }
     return Ember.RSVP.hash({
-      decks: this.store.query('deck', { start: 0, limit: 10 }),
+      decks: this.store.query('deck', query ),
       cardUsers: this.store.findAll('cardUser'),
       cards: this.store.findAll('card')
     });

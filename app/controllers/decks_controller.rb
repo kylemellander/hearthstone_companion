@@ -6,6 +6,8 @@ class DecksController < ApplicationController
   def index
     if params[:filter] != nil && params[:filter][:remote_id] != nil
       @decks = Deck.where("remote_id = ?", params[:filter].values[0])
+    elsif params[:player_class] != nil
+      @decks = Deck.where("player_class = ?", params[:player_class])
     else
       @decks = Deck.all
     end

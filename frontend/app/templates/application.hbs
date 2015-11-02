@@ -1,21 +1,27 @@
-<h2 id='title'>Frontend</h2>
-{{#link-to 'index'}}Home{{/link-to}}
-{{#link-to 'collection'}}Collection{{/link-to}}
-{{#link-to 'packs'}}Pack Info{{/link-to}}
-{{#link-to 'stats'}}Collection Stats{{/link-to}}
-{{#link-to 'deckslist'}}Decks{{/link-to}}
-{{#link-to 'scrape'}}Scrape{{/link-to}}
+<div class="container">
+  <div class="logo" id='title'><img src="/images/logo.png" alt="My Hearth"></div>
+  <div class="login menu">
+    {{#if session.isAuthenticated}}
+      <button {{ action 'invalidateSession' }}>Logout</button>
+    {{else}}
+      {{#link-to 'login'}}Login{{/link-to}}
+    {{/if}}
+  </div>
+  <div class="main container">
+    {{#link-to 'index'}}Home{{/link-to}}
+    {{#if session.isAuthenticated}}
+      {{#link-to 'collection'}}Collection{{/link-to}}
+      {{#link-to 'packs'}}Pack Info{{/link-to}}
+      {{#link-to 'stats'}}Collection Stats{{/link-to}}
+      {{#link-to 'deckslist'}}Decks{{/link-to}}
+      {{#link-to 'scrape'}}Scrape{{/link-to}}
+    {{/if}}
+    <hr class="hr break">
 
-{{#if session.isAuthenticated}}
-    <button {{ action 'invalidateSession' }}>Logout</button>
-{{else}}
-    {{#link-to 'login'}}Login{{/link-to}}
-{{/if}}
+    <div id="messages"></div>
 
-<hr>
-
-<div id="messages"></div>
-
-<div class="main-container">
-  {{outlet}}
+    <div class="main-container">
+      {{outlet}}
+    </div>
+  </div>
 </div>
