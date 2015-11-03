@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  # database: hearth_companion_production
-  # username: hearth_companion
-  # password: <%= ENV['HEARTH_COMPANION_DATABASE_PASSWORD'] %>
+  database: hearth_companion_production
+  username: hearth_companion
+  password: <%= ENV['HEARTH_COMPANION_DATABASE_PASSWORD'] %>
