@@ -1,0 +1,31 @@
+{{#if signupValue}}
+  <form id="signup" {{action 'signup' on="submit"}}>
+    <h3>Sign Up</h3>
+    <div class="form-group">
+      <label for="identification">Email</label>
+      {{input placeholder="Enter Email Address" value=identification class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{input placeholder="Choose a Password" type="password" value=password class="form-control"}}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign Up</button> <a {{action 'setSignup' false}} class="btn btn-default">Login</a>
+  </form>
+{{else}}
+  <form id="login" {{action 'authenticate' on='submit'}}>
+    <h3>Sign In</h3>
+    <div class="form-group">
+      <label for="identification">Email</label>
+      {{input id='identification' placeholder='Enter Login' value=identification class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{input id='password' placeholder='Enter Password' type='password' value=password class="form-control"}}
+    </div>
+
+    <button id="submit" type="submit" class="btn btn-primary">Login</button> <a {{action 'setSignup' true}} class="btn btn-default">Sign Up</a>
+  </form>
+{{/if}}

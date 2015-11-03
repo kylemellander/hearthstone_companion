@@ -33,7 +33,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                       rarity: rarity,
                       cost: response[key][prop].cost,
                       playerClass: response[key][prop].playerClass || "",
-                      img: response[key][prop].img,
+                      img: response[key][prop].img.replace("http", "https"),
                       cardType: response[key][prop].type,
                     };
                     var newCard = context.store.createRecord('card', params);

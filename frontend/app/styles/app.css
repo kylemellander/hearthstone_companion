@@ -27,7 +27,7 @@ a.card.Basic {
   height: auto;
 }
 .active {
-  color:#E6CC80 !important;
+  color:#198eff !important;
   font-weight: bold;
 }
 body.loading .main-container {

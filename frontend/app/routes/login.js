@@ -2,9 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   actions: {
-    signup() {
-      var email = this.controller.identification;
-      var password = this.controller.password;
+    signup(email, password) {
       var user = this.store.createRecord('user', {
         email: email,
         password: password
@@ -24,16 +22,19 @@ export default Ember.Route.extend({
       }).then(function(response) {
         user.set('password', "[protected]");
         if (response) {
-          Ember.$('#messages').empty().append("Your account has been created successfully!").removeClass("error").addClass("success");
+          Ember.$('#messages').html("Your account has been created successfully!").removeClass("error").addClass("success").show();
+          Ember.$("#messages").delay(3000).fadeOut(1000, function() {$(this).empty();});
         }
       });
     },
-    authenticate() {
-      var data = {identification: this.controller.identification, password: this.controller.password };
+    authenticate(email, password) {
+      var data = {identification: email, password: password };
       return this.get('session').authenticate('simple-auth-authenticator:devise', data).then(function() {
-        Ember.$('#messages').empty().append("You are successfully logged in.").removeClass("error").addClass("success");
+        Ember.$('#messages').empty().append("You are successfully logged in.").removeClass("error").addClass("success").show();
+        Ember.$("#messages").delay(3000).fadeOut(1000, function() {$(this).empty();});
       }, function() {
-        Ember.$('#messages').empty().append("Your username and/or password are incorrect.").removeClass("success").addClass("error");
+        Ember.$('#messages').empty().append("Your username and/or password are incorrect.").removeClass("success").addClass("error").show();
+        Ember.$("#messages").delay(3000).fadeOut(1000, function() {$(this).empty();});
       });
     }
   }
