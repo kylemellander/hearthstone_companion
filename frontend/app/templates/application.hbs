@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="logo" id='title'><img src="/images/logo.png" alt="My Hearth"></div>
+  <div class="logo" id='title'>{{#link-to "index"}}<img src="/images/logo.png" alt="My Hearth">{{/link-to}}</div>
   <div class="login menu">
     {{#if session.isAuthenticated}}
       <button {{ action 'invalidateSession' }} class="btn btn-default">Logout</button>
