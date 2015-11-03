@@ -1,3 +1,5 @@
+{{#if showSort}}
+<a {{action 'toggleSort'}}>Cancel Sort</a>
 <div class="sort-box">
   <p>
     Set:
@@ -54,6 +56,9 @@
     </div>
   </form>
 </div>
+{{else}}
+  <a {{action 'toggleSort'}}>Sort</a>
+{{/if}}
 <div class="container-fluid">
   <div class="row">
     {{#each filteredCards as |cardUser|}}

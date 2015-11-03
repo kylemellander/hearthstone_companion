@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   cardClass: "All",
   cardRarity: "All",
   cardCost: "All",
+  showSort: false,
   submit: function(e) {
     e.preventDefault();
   },
@@ -26,16 +27,21 @@ export default Ember.Component.extend({
             userCard.get('card').get('cost') === parseInt(this.get('cardCost')) ||
             (parseInt(this.get('cardCost')) === 7 && userCard.get('card').get('cost') >= 7)) &&
             userCard.get('count') !== 0;
-  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'userCards', 'sortedCards'),
+  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'userCards', 'sortedCards', 'showSort'),
   actions: {
     addCard(userCards, card, count) {
       this.sendAction('addCard', userCards, card, count);
     },
-    toggleDisplay() {
-      if(this.get('showAsTable')) {
-        this.set('showAsTable', false);
+    toggleSort() {
+      if(this.get('showSort')) {
+        this.set('showSort', false);
+        this.set('cardSearch', "");
+        this.set("cardSet", "");
+        this.set("cardClass", "All");
+        this.set("cardRarity", "All");
+        this.set("cardCost", "All");
       } else {
-        this.set('showAsTable', true);
+        this.set('showSort', true);
       }
     },
     setCardSet(str) {
