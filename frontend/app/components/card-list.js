@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   showAsTable: false,
-  sortedCardsOrder: ['cost', 'card_type:desc', 'name'],
+  sortedCardsOrder: ['cost', 'cardType:desc', 'name'],
   sortedCards: Ember.computed.sort('cards', 'sortedCardsOrder'),
   cardSearch: "",
   cardSet: "",

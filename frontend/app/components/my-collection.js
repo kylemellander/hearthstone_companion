@@ -2,8 +2,28 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   showAsTable: false,
-  sortedCardsOrder: ['cost', 'card_type:desc', 'name'],
-  sortedCards: Ember.computed.sort('cardUsers.@each.card', 'sortedCardsOrder'),
+  sortedCardsOrder: ['cost', 'cardType:desc', 'name'],
+  sortedCards: Ember.computed('userCards', function() {
+    var cardUsers = this.get('userCards');
+    function compare(a,b) {
+      if (a.get('card').get('cost') < b.get('card').get('cost')) {
+        return -1;
+      } else if (a.get('card').get('cost') > b.get('card').get('cost')) {
+        return 1;
+      } else if (a.get('card').get('cardType') > b.get('card').get('cardType')) {
+        return -1;
+      } else if (a.get('card').get('cardType') < b.get('card').get('cardType')) {
+        return 1;
+      } else if (a.get('card').get('name') < b.get('card').get('name')) {
+        return -1;
+      } else if (a.get('card').get('name') > b.get('card').get('name')) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+    return cardUsers.toArray().sort(compare);
+  }),
   cardSearch: "",
   cardSet: "",
   cardClass: "All",
