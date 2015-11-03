@@ -68,7 +68,7 @@ body.loading .main-container {
 .main-container {
   clear:both;
 }
-#mycollection {
+.my-card-list {
   max-height: 75vh;
   right: 3%;
   position:fixed;
