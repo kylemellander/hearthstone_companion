@@ -30,7 +30,7 @@ export default Ember.Component.extend({
             (card.get('cardUser').content === null ||
             (card.get('rarity') !== "Legendary" &&
             card.get('cardUser').content.get('count') !== 2)));
-  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'hideOwned', 'lastClicked'),
+  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'sortedCards.@each.count', 'hideOwned', 'lastClicked'),
   actions: {
     addCard(userCards, card, count) {
       this.set('lastClicked', card.get('name'));

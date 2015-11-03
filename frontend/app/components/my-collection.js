@@ -23,7 +23,7 @@ export default Ember.Component.extend({
       }
     }
     return cardUsers.toArray().sort(compare);
-  }),
+  }).property('userCards', 'userCards.@each.count'),
   cardSearch: "",
   cardSet: "",
   cardClass: "All",
