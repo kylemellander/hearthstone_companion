@@ -68,3 +68,15 @@ body.loading .main-container {
 .main-container {
   clear:both;
 }
+#mycollection {
+  max-height: 75vh;
+  right: 3%;
+  position:fixed;
+  overflow: scroll;
+}
+.card-count {
+  width:30px;
+  text-align:center;
+  margin:0 auto;
+  height: 16px;
+}

@@ -2,6 +2,7 @@
   <div class="logo" id='title'>{{#link-to "index"}}<img src="/images/logo.png" alt="My Hearth">{{/link-to}}</div>
   <div class="login menu">
     {{#if session.isAuthenticated}}
+      Logged in as {{ session.content.user_email}}
       <button {{ action 'invalidateSession' }} class="btn btn-default">Logout</button>
     {{else}}
       {{#link-to 'login' class="btn btn-default"}}Login{{/link-to}}
