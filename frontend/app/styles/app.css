@@ -123,3 +123,6 @@ body.loading .main-container {
   border-bottom: 3px solid rgba(255, 255, 255, 0.2);
   margin:1.5em 0;
 }
+.main-container {
+  clear:both;
+}

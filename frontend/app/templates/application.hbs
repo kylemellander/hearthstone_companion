@@ -8,16 +8,16 @@
     {{/if}}
   </div>
   <div class="main container">
-    {{#link-to 'index'}}Home{{/link-to}}
-    {{#if session.isAuthenticated}}
-      {{#link-to 'collection'}}Collection{{/link-to}}
-      {{#link-to 'packs'}}Pack Info{{/link-to}}
-      {{#link-to 'stats'}}Collection Stats{{/link-to}}
-      {{#link-to 'deckslist'}}Decks{{/link-to}}
-      {{#link-to 'scrape'}}Scrape{{/link-to}}
-    {{/if}}
-    <hr class="hr break">
-
+    <ul class="nav nav-pills navbar-right">
+      <li role="presentation">{{#link-to 'index'}}Home{{/link-to}}</li>
+      {{#if session.isAuthenticated}}
+        <li role="presentation">{{#link-to 'collection'}}Collection{{/link-to}}</li>
+        <li role="presentation">{{#link-to 'packs'}}Pack Info{{/link-to}}</li>
+        <li role="presentation">{{#link-to 'stats'}}Collection Stats{{/link-to}}</li>
+        <li role="presentation">{{#link-to 'deckslist'}}Decks{{/link-to}}</li>
+        <li role="presentation">{{#link-to 'scrape'}}Scrape{{/link-to}}</li>
+      {{/if}}
+    </ul>
     <div id="messages"></div>
 
     <div class="main-container">
