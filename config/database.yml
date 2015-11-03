@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: hearth_companion_production
-  username: hearth_companion
-  password: <%= ENV['HEARTH_COMPANION_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: hearth_companion_production
+#   username: hearth_companion
+#   password: <%= ENV['HEARTH_COMPANION_DATABASE_PASSWORD'] %>
