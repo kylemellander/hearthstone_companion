@@ -15,7 +15,9 @@
         <li role="presentation">{{#link-to 'packs'}}Pack Info{{/link-to}}</li>
         <li role="presentation">{{#link-to 'stats'}}Collection Stats{{/link-to}}</li>
         <li role="presentation">{{#link-to 'deckslist'}}Decks{{/link-to}}</li>
-        <li role="presentation">{{#link-to 'scrape'}}Scrape{{/link-to}}</li>
+        {{#if session.admin}}
+          <li role="presentation">{{#link-to 'scrape'}}Scrape{{/link-to}}</li>
+        {{/if}}
       {{/if}}
     </ul>
     <div id="messages"></div>

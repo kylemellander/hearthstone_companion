@@ -29,7 +29,11 @@ export default Ember.Route.extend({
     },
     authenticate(email, password) {
       var data = {identification: email, password: password };
+      var self = this;
       return this.get('session').authenticate('simple-auth-authenticator:devise', data).then(function() {
+        if (email.toLowerCase() === "kylemellander@gmail.com") {
+          self.get('session').content.admin = true;
+        }
         Ember.$('#messages').empty().append("You are successfully logged in.").removeClass("error").addClass("success").show();
         Ember.$("#messages").delay(3000).fadeOut(1000, function() {$(this).empty();});
       }, function() {
