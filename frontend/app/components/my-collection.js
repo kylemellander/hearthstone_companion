@@ -1,29 +1,28 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  showAsTable: false,
   sortedCardsOrder: ['cost', 'cardType:desc', 'name'],
-  sortedCards: Ember.computed('userCards', function() {
-    var cardUsers = this.get('userCards');
+  sortedCards: Ember.computed('cards', function() {
+    var cards = this.get('cards');
     function compare(a,b) {
-      if (a.get('card').get('cost') < b.get('card').get('cost')) {
+      if (a.get('cost') < b.get('cost')) {
         return -1;
-      } else if (a.get('card').get('cost') > b.get('card').get('cost')) {
+      } else if (a.get('cost') > b.get('cost')) {
         return 1;
-      } else if (a.get('card').get('cardType') > b.get('card').get('cardType')) {
+      } else if (a.get('cardType') > b.get('cardType')) {
         return -1;
-      } else if (a.get('card').get('cardType') < b.get('card').get('cardType')) {
+      } else if (a.get('cardType') < b.get('cardType')) {
         return 1;
-      } else if (a.get('card').get('name') < b.get('card').get('name')) {
+      } else if (a.get('name') < b.get('name')) {
         return -1;
-      } else if (a.get('card').get('name') > b.get('card').get('name')) {
+      } else if (a.get('name') > b.get('name')) {
         return 1;
       } else {
         return 0;
       }
     }
-    return cardUsers.toArray().sort(compare);
-  }).property('userCards', 'userCards.@each.count'),
+    return cards.toArray().sort(compare);
+  }).property('cards', 'cards.count'),
   cardSearch: "",
   cardSet: "",
   cardClass: "All",
@@ -33,24 +32,24 @@ export default Ember.Component.extend({
   submit: function(e) {
     e.preventDefault();
   },
-  filteredCards: Ember.computed.filter('sortedCards', function(userCard) {
-
+  filteredCards: Ember.computed.filter('sortedCards', function(card) {
     var search = this.get('cardSearch') || "";
-    return  userCard.get('card').get('name').toLowerCase().indexOf(search.toLowerCase()) > -1 &&
+    return  card.get('count') !== 0 &&
+            card.get('name').toLowerCase().indexOf(search.toLowerCase()) > -1 &&
             (this.get('cardSet') === "" ||
-            userCard.get('card').get('cardSet') === this.get('cardSet')) &&
+            card.get('cardSet') === this.get('cardSet')) &&
             (this.get('cardClass') === "All" ||
-            userCard.get('card').get('playerClass') === this.get('cardClass')) &&
+            card.get('playerClass') === this.get('cardClass')) &&
             (this.get('cardRarity') === "All" ||
-            userCard.get('card').get('rarity') === this.get('cardRarity')) &&
+            card.get('rarity') === this.get('cardRarity')) &&
             (this.get('cardCost') === "All" ||
-            userCard.get('card').get('cost') === parseInt(this.get('cardCost')) ||
-            (parseInt(this.get('cardCost')) === 7 && userCard.get('card').get('cost') >= 7)) &&
-            userCard.get('count') !== 0;
-  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'userCards', 'sortedCards', 'showSort'),
+            card.get('cost') === parseInt(this.get('cardCost')) ||
+            (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7)) &&
+            card.get('count') !== 0;
+  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'cards', 'sortedCards', 'showSort'),
   actions: {
-    addCard(userCards, card, count) {
-      this.sendAction('addCard', userCards, card, count);
+    addCard(card, count) {
+      this.sendAction('addCard', card, count);
     },
     toggleSort() {
       if(this.get('showSort')) {

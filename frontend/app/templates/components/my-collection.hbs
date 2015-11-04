@@ -61,8 +61,8 @@
 {{/if}}
 <div class="container-fluid my-card-list">
   <div class="row">
-    {{#each filteredCards as |cardUser|}}
-      {{my-collection-card addCard="addCard" cardUser=cardUser userCards=userCards session=session card=cardUser.card}}
+    {{#each filteredCards as |card|}}
+      {{my-collection-card addCard="addCard" session=session card=card}}
     {{/each}}
   </div>
 </div>
