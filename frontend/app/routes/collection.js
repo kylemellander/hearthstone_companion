@@ -8,12 +8,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     });
   },
   actions: {
-    addCard(card, count) {
-      var newCount = card.get('count') + count;
-      if (!(card.get('rarity') === "Legendary" && newCount > 1) && newCount <= 2 && newCount >= 0) {
-        card.set('count', newCount);
-        card.save();
-      }
+    addCard(card) {
+      card.save();
     }
   }
 });

@@ -32,9 +32,9 @@ export default Ember.Component.extend({
             card.get('count') !== 2)));
   }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'sortedCards.@each.count', 'hideOwned', 'lastClicked'),
   actions: {
-    addCard(card, count) {
+    addCard(card) {
       this.set('lastClicked', card.get('name'));
-      this.sendAction('addCard', card, count);
+      this.sendAction('addCard', card);
     },
     setCardSet(str) {
       var names = {"": "All", "Classic": "Classic", "Naxxramas": "Naxx", "Goblins vs Gnomes": "GVG", "Blackrock Mountain": "BRM", "The Grand Tournament": "TGT"};

@@ -1,12 +1,17 @@
 <div class="container-fluid collection-container">
   <div class="row">
-
+    {{#if showList}}
     <div class="col-sm-10" id="cardlist">
-      {{card-list cards=model.cards session=session addCard="addCard"}}
+      {{card-list cards=model.cards addCard="addCard"}}
     </div>
     <div class="col-sm-2" id="mycollection">
       <h3 class="section-headers">My Collection:</h3>
-      {{my-collection cards=model.cards session=session addCard="addCard"}}
+      {{my-collection cards=model.cards addCard="addCard"}}
     </div>
+    {{else}}
+    <div class="col-sm-12" id="cardlist">
+      {{card-list cards=model.cards addCard="addCard"}}
+    </div>
+    {{/if}}
   </div>
 </div>
