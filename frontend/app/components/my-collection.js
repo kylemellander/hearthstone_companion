@@ -46,7 +46,7 @@ export default Ember.Component.extend({
             card.get('cost') === parseInt(this.get('cardCost')) ||
             (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7)) &&
             card.get('count') !== 0;
-  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'cards', 'sortedCards', 'showSort'),
+  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'showSort'),
   actions: {
     addCard(card, count) {
       this.sendAction('addCard', card);

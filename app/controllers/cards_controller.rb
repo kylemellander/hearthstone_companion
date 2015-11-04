@@ -28,7 +28,7 @@ class CardsController < ApplicationController
       @card = Card.find(params[:id])
       card_user = CardUser.find_or_create_by(card_id: params[:id], user_id: user.id)
       card_user.update(count: count)
-      render json: @card, user_id: user.id
+      head :no_content
     end
   end
 
