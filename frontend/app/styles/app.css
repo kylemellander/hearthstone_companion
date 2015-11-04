@@ -4,16 +4,16 @@ html, body {
 a {
   cursor:pointer;
 }
-a.card.Common{
+a.card.Common, table .Common{
   color: #0faf03
 }
-a.card.Rare {
+a.card.Rare, table .Rare {
   color: #198eff;
 }
-a.card.Epic {
+a.card.Epic, table .Epic {
   color: #ab48ee;
 }
-a.card.Legendary {
+a.card.Legendary, table .Legendary {
   color: #f07000;
 }
 a.card.Basic {

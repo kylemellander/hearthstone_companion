@@ -9,6 +9,22 @@
 {{#link-to "deckslist" (query-params playerClass="Warlock")}}Warlock{{/link-to}}
 {{#link-to "deckslist" (query-params playerClass="Warrior")}}Warrior{{/link-to}}
 
-{{#each filteredDecks as |deck|}}
-  {{deck-preview model=model deck=deck cardDecks=deck.cardDecks cardUsers=model.cardUsers session=session}}
-{{/each}}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Common</th>
+      <th>Rare</th>
+      <th>Epic</th>
+      <th>Legendary</th>
+      <th>Total</th>
+      <th>Dust Cost</th>
+      <th>Dust Needed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each filteredDecks as |deck|}}
+      {{deck-preview model=model deck=deck cardDecks=deck.cardDecks cardUsers=model.cardUsers session=session}}
+    {{/each}}
+  </tbody>
+</table>

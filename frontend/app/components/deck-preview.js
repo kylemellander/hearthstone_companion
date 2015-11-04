@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  tagName: 'tr',
   cardsYouHave: Ember.computed.filter('cardUsers', function(cardUser) {
     var bool = false;
     this.get('cardDecks').forEach(function(cardDeck) {
