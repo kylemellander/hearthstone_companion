@@ -68,12 +68,6 @@ body.loading .main-container {
 .main-container {
   clear:both;
 }
-.my-card-list {
-  max-height: 75vh;
-  right: 3%;
-  position:fixed;
-  overflow: scroll;
-}
 .card-count {
   width:30px;
   text-align:center;

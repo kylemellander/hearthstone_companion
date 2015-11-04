@@ -44,9 +44,8 @@ export default Ember.Component.extend({
             card.get('rarity') === this.get('cardRarity')) &&
             (this.get('cardCost') === "All" ||
             card.get('cost') === parseInt(this.get('cardCost')) ||
-            (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7)) &&
-            card.get('count') !== 0;
-  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'showSort'),
+            (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7));
+  }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards.@each.count', 'showSort'),
   actions: {
     addCard(card, count) {
       this.sendAction('addCard', card);

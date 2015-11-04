@@ -10,12 +10,12 @@ export default Ember.Component.extend({
   cardRarity: "All",
   cardCost: "All",
   hideOwned: false,
-  lastClicked: "",
   submit: function(e) {
     e.preventDefault();
   },
   filteredCards: Ember.computed.filter('sortedCards', function(card) {
-    var search = this.get('cardSearch').toLowerCase();
+    var search = this.get('cardSearch') || "";
+    search = search.toLowerCase();
     return  card.get('name').toLowerCase().indexOf(search) > -1 &&
             (this.get('cardSet') === "" ||
             card.get('cardSet') === this.get('cardSet')) &&
@@ -33,7 +33,6 @@ export default Ember.Component.extend({
   }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards.@each.count', 'hideOwned', 'lastClicked'),
   actions: {
     addCard(card) {
-      this.set('lastClicked', card.get('name'));
       this.sendAction('addCard', card);
     },
     setCardSet(str) {
