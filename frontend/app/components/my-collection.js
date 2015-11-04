@@ -49,7 +49,7 @@ export default Ember.Component.extend({
   }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'cards', 'sortedCards', 'showSort'),
   actions: {
     addCard(card, count) {
-      this.sendAction('addCard', card, count);
+      this.sendAction('addCard', card);
     },
     toggleSort() {
       if(this.get('showSort')) {
