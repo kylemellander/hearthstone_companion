@@ -27,21 +27,14 @@ export default Ember.Component.extend({
             card.get('cost') === parseInt(this.get('cardCost')) ||
             (parseInt(this.get('cardCost')) === 7 && card.get('cost') >= 7)) &&
             (!(this.get('hideOwned')) ||
-            (card.get('cardUser').content === null ||
+            (card.get('count') === 0 ||
             (card.get('rarity') !== "Legendary" &&
-            card.get('cardUser').content.get('count') !== 2)));
+            card.get('count') !== 2)));
   }).property('cardSearch', 'cardSet', 'cardClass', 'cardRarity', 'cardCost', 'sortedCards', 'sortedCards.@each.count', 'hideOwned', 'lastClicked'),
   actions: {
-    addCard(userCards, card, count) {
+    addCard(card, count) {
       this.set('lastClicked', card.get('name'));
-      this.sendAction('addCard', userCards, card, count);
-    },
-    toggleDisplay() {
-      if(this.get('showAsTable')) {
-        this.set('showAsTable', false);
-      } else {
-        this.set('showAsTable', true);
-      }
+      this.sendAction('addCard', card, count);
     },
     setCardSet(str) {
       var names = {"": "All", "Classic": "Classic", "Naxxramas": "Naxx", "Goblins vs Gnomes": "GVG", "Blackrock Mountain": "BRM", "The Grand Tournament": "TGT"};
@@ -70,7 +63,6 @@ export default Ember.Component.extend({
       this.$(".cost-display." + str).addClass("active");
     },
     addAll(filteredCards) {
-      var userCards = this.get('userCards');
       var self = this;
       var count;
       filteredCards.forEach(function(card) {
@@ -79,7 +71,7 @@ export default Ember.Component.extend({
         } else {
           count = 2;
         }
-        self.sendAction('addCard', userCards, card, count);
+        self.sendAction('addCard', card, count);
       });
     }
   }

@@ -19,9 +19,8 @@ class CardUsersController < ApplicationController
 
   def create
     if user && Devise.secure_compare(user.authentication_token, token)
-      card_user = CardUser.find_or_initialize_by(user_id: user.id, card_id: card_user_params[:card_id].to_i)
+      card_user = CardUser.find_or_create_by(user_id: user.id, card_id: card_user_params[:card_id].to_i)
       card_user.update(count: card_user_params[:count])
-      card_user.save
       render json: card_user
     else
       render json: {"error": "You are not logged in."}

@@ -9,5 +9,6 @@ export default DS.Model.extend({
   cardType: DS.attr(),
   img: DS.attr(),
   hearthstoneId: DS.attr(),
-  cardUser: DS.belongsTo('cardUser', {async: true})
+  cardUser: DS.belongsTo('cardUser', {async: true}),
+  count: DS.attr('number'),
 });

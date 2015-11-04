@@ -66,7 +66,7 @@
 <div class="container-fluid">
   <div class="row">
     {{#each filteredCards as |card|}}
-        {{card-list-card addCard="addCard" userCards=userCards session=session card=card hideOwned=hideOwned}}
+        {{card-list-card addCard="addCard" session=session card=card hideOwned=hideOwned}}
     {{/each}}
   </div>
 </div>
