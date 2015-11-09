@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  showList: false,
+  showList: true,
   actions: {
     toggleShowList(bool) {
       this.set('showList', bool);

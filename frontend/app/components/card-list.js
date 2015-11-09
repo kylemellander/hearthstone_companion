@@ -63,14 +63,13 @@ export default Ember.Component.extend({
     },
     addAll(filteredCards) {
       var self = this;
-      var count;
       filteredCards.forEach(function(card) {
         if (card.get('rarity') === "Legendary") {
-          count = 1;
+          card.set('count', 1);
         } else {
-          count = 2;
+          card.set('count', 2);
         }
-        self.sendAction('addCard', card, count);
+        self.sendAction('addCard', card);
       });
     }
   }
