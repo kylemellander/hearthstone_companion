@@ -42,6 +42,7 @@ body.loading .main-container {
 .login.menu {
   float:right;
   margin-top: 20px;
+  color: #bebebe;
 }
 .logo {
   float:left;
@@ -73,4 +74,31 @@ body.loading .main-container {
   text-align:center;
   margin:0 auto;
   height: 16px;
+}
+ul.main-navbar {
+  margin-right: 12px;
+}
+.messages{
+  clear:both;
+}
+.km-banner {
+  width: 100%;
+  text-align: center;
+  margin: 60px 0;
+}
+.km-banner img, .km-banner h3 {
+  margin:0 auto;
+}
+.km-content {
+  padding:24px;
+}
+.vcenter {
+  display: flex;
+  align-items: center;
+  height:250px;
+}
+hr.style-two {
+    border: 0 !important;
+    height: 1px !important;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
