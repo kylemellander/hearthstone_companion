@@ -102,3 +102,12 @@ hr.style-two {
     height: 1px !important;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
+table.km-table {
+  background:#fff;
+}
+.km-table th {
+  padding:4px;
+}
+.center-align {
+  text-align:center;
+}
