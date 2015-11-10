@@ -111,3 +111,6 @@ table.km-table {
 .center-align {
   text-align:center;
 }
+.km-deck-table {
+  background:rgba(255,255,255,0.3);
+}
