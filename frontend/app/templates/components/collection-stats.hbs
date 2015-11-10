@@ -1,26 +1,141 @@
-<div class="statistics">
-  <div>Playable Cards: {{collection-calc userCards "your" "playable" "total" ""}} / {{collection-calc cards "total" "playable" "total" ""}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "total" "") (collection-calc cards "total" "playable" "total" "")}}% )</div>
-  <div>Playable Basic Cards: {{collection-calc userCards "your" "playable" "rarity" "Basic"}} / {{collection-calc cards "total" "playable" "rarity" "Basic"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "rarity" "Basic") (collection-calc cards "total" "playable" "rarity" "Basic")}}% )</div>
-  <div>Playable Common Cards: {{collection-calc userCards "your" "playable" "rarity" "Common"}} / {{collection-calc cards "total" "playable" "rarity" "Common"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "rarity" "Common") (collection-calc cards "total" "playable" "rarity" "Common")}}% )</div>
-  <div>Playable Rare Cards: {{collection-calc userCards "your" "playable" "rarity" "Rare"}} / {{collection-calc cards "total" "playable" "rarity" "Rare"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "rarity" "Rare") (collection-calc cards "total" "playable" "rarity" "Rare")}}% )</div>
-  <div>Playable Epic Cards: {{collection-calc userCards "your" "playable" "rarity" "Epic"}} / {{collection-calc cards "total" "playable" "rarity" "Epic"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "rarity" "Epic") (collection-calc cards "total" "playable" "rarity" "Epic")}}% )</div>
-  <div>Playable Legendary Cards: {{collection-calc userCards "your" "playable" "rarity" "Legendary"}} / {{collection-calc cards "total" "playable" "rarity" "Legendary"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "rarity" "Legendary") (collection-calc cards "total" "playable" "rarity" "Legendary")}}% )</div>
-  <div>Playable Classic Cards: {{collection-calc userCards "your" "playable" "cardSet" "Classic"}} / {{collection-calc cards "total" "playable" "cardSet" "Classic"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "cardSet" "Classic") (collection-calc cards "total" "playable" "cardSet" "Classic")}}% )</div>
-  <div>Playable Promotion Cards: {{collection-calc userCards "your" "playable" "cardSet" "Promotion"}} / {{collection-calc cards "total" "playable" "cardSet" "Promotion"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "cardSet" "Promotion") (collection-calc cards "total" "playable" "cardSet" "Promotion")}}% )</div>
-  <div>Playable Naxx Cards: {{collection-calc userCards "your" "playable" "cardSet" "Naxxramas"}} / {{collection-calc cards "total" "playable" "cardSet" "Naxxramas"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "cardSet" "Naxxramas") (collection-calc cards "total" "playable" "cardSet" "Naxxramas")}}% )</div>
-  <div>Playable GVG Cards: {{collection-calc userCards "your" "playable" "cardSet" "Goblins vs Gnomes"}} / {{collection-calc cards "total" "playable" "cardSet" "Goblins vs Gnomes"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "cardSet" "Goblins vs Gnomes") (collection-calc cards "total" "playable" "cardSet" "Goblins vs Gnomes")}}% )</div>
-  <div>Playable BRM Cards: {{collection-calc userCards "your" "playable" "cardSet" "Blackrock Mountain"}} / {{collection-calc cards "total" "playable" "cardSet" "Blackrock Mountain"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "cardSet" "Blackrock Mountain") (collection-calc cards "total" "playable" "cardSet" "Blackrock Mountain")}}% )</div>
-  <div>Playable TGT Cards: {{collection-calc userCards "your" "playable" "cardSet" "The Grand Tournament"}} / {{collection-calc cards "total" "playable" "cardSet" "The Grand Tournament"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "cardSet" "The Grand Tournament") (collection-calc cards "total" "playable" "cardSet" "The Grand Tournament")}}% )</div>
-  <div>Unique Cards: {{collection-calc userCards "your" "unique" "total" ""}} / {{collection-calc cards "total" "unique" "total" ""}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "total" "") (collection-calc cards "total" "unique" "total" "")}}% )</div>
-  <div>Unique Basic Cards: {{collection-calc userCards "your" "unique" "rarity" "Basic"}} / {{collection-calc cards "total" "unique" "rarity" "Basic"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "rarity" "Basic") (collection-calc cards "total" "unique" "rarity" "Basic")}}% )</div>
-  <div>Unique Common Cards: {{collection-calc userCards "your" "unique" "rarity" "Common"}} / {{collection-calc cards "total" "unique" "rarity" "Common"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "rarity" "Common") (collection-calc cards "total" "unique" "rarity" "Common")}}% )</div>
-  <div>Unique Rare Cards: {{collection-calc userCards "your" "unique" "rarity" "Rare"}} / {{collection-calc cards "total" "unique" "rarity" "Rare"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "rarity" "Rare") (collection-calc cards "total" "unique" "rarity" "Rare")}}% )</div>
-  <div>Unique Epic Cards: {{collection-calc userCards "your" "unique" "rarity" "Epic"}} / {{collection-calc cards "total" "unique" "rarity" "Epic"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "rarity" "Epic") (collection-calc cards "total" "unique" "rarity" "Epic")}}% )</div>
-  <div>Unique Legendary Cards: {{collection-calc userCards "your" "unique" "rarity" "Legendary"}} / {{collection-calc cards "total" "unique" "rarity" "Legendary"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "rarity" "Legendary") (collection-calc cards "total" "unique" "rarity" "Legendary")}}% )</div>
-  <div>Unique Classic Cards: {{collection-calc userCards "your" "unique" "cardSet" "Classic"}} / {{collection-calc cards "total" "unique" "cardSet" "Classic"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "cardSet" "Classic") (collection-calc cards "total" "unique" "cardSet" "Classic")}}% )</div>
-  <div>Unique Promotion Cards: {{collection-calc userCards "your" "unique" "cardSet" "Promotion"}} / {{collection-calc cards "total" "unique" "cardSet" "Promotion"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "cardSet" "Promotion") (collection-calc cards "total" "unique" "cardSet" "Promotion")}}% )</div>
-  <div>Unique Naxx Cards: {{collection-calc userCards "your" "unique" "cardSet" "Naxxramas"}} / {{collection-calc cards "total" "unique" "cardSet" "Naxxramas"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "cardSet" "Naxxramas") (collection-calc cards "total" "unique" "cardSet" "Naxxramas")}}% )</div>
-  <div>Unique GVG Cards: {{collection-calc userCards "your" "unique" "cardSet" "Goblins vs Gnomes"}} / {{collection-calc cards "total" "unique" "cardSet" "Goblins vs Gnomes"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "cardSet" "Goblins vs Gnomes") (collection-calc cards "total" "unique" "cardSet" "Goblins vs Gnomes")}}% )</div>
-  <div>Unique BRM Cards: {{collection-calc userCards "your" "unique" "cardSet" "Blackrock Mountain"}} / {{collection-calc cards "total" "unique" "cardSet" "Blackrock Mountain"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "cardSet" "Blackrock Mountain") (collection-calc cards "total" "unique" "cardSet" "Blackrock Mountain")}}% )</div>
-  <div>Unique TGT Cards: {{collection-calc userCards "your" "unique" "cardSet" "The Grand Tournament"}} / {{collection-calc cards "total" "unique" "cardSet" "The Grand Tournament"}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "cardSet" "The Grand Tournament") (collection-calc cards "total" "unique" "cardSet" "The Grand Tournament")}}% )</div>
+<h1>Collection Statistics</h1>
+<div class="statistics row">
+  <div class="col-sm-6">
+    <h4>
+      Playable Cards: {{collection-calc userCards "your" "playable" "total" ""}} /
+      {{collection-calc cards "total" "playable" "total" ""}}
+      ( {{your-playable-cards-percentage (collection-calc userCards "your" "playable" "total" "") (collection-calc cards "total" "playable" "total" "")}}% )
+    </h4>
+
+    <h5>By Rarity</h5>
+    <ul class="list-group">
+
+      <li class="list-group-item">
+        Playable Basic Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "rarity" "Basic") (collection-calc cards "total" "playable" "rarity" "Basic")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable Common Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "rarity" "Common") (collection-calc cards "total" "playable" "rarity" "Common")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable Rare Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "rarity" "Rare") (collection-calc cards "total" "playable" "rarity" "Rare")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable Epic Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "rarity" "Epic") (collection-calc cards "total" "playable" "rarity" "Epic")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable Legendary Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "rarity" "Legendary") (collection-calc cards "total" "playable" "rarity" "Legendary")}}}
+      </li>
+
+    </ul>
+
+    <h5>By Set</h5>
+    <ul class="list-group">
+
+      <li class="list-group-item">
+        Playable Classic Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "cardSet" "Classic") (collection-calc cards "total" "playable" "cardSet" "Classic")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable Promotion Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "cardSet" "Promotion") (collection-calc cards "total" "playable" "cardSet" "Promotion")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable Naxx Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "cardSet" "Naxxramas") (collection-calc cards "total" "playable" "cardSet" "Naxxramas")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable GVG Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "cardSet" "Goblins vs Gnomes") (collection-calc cards "total" "playable" "cardSet" "Goblins vs Gnomes")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable BRM Cards:
+        {{{display-stats (collection-calc userCards "your" "playable" "cardSet" "Blackrock Mountain") (collection-calc cards "total" "playable" "cardSet" "Blackrock Mountain")}}}
+      </li>
+
+      <li class="list-group-item">
+        Playable TGT Cards:{{{display-stats (collection-calc userCards "your" "playable" "cardSet" "The Grand Tournament") (collection-calc cards "total" "playable" "cardSet" "The Grand Tournament")}}}
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="col-sm-6">
+    <h4>Unique Cards: {{collection-calc userCards "your" "unique" "total" ""}} / {{collection-calc cards "total" "unique" "total" ""}} ( {{your-playable-cards-percentage (collection-calc userCards "your" "unique" "total" "") (collection-calc cards "total" "unique" "total" "")}}% )</h4>
+    <h5>By Rarity</h5>
+    <ul class="list-group">
+
+      <li class="list-group-item">
+        Unique Basic Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "rarity" "Basic") (collection-calc cards "total" "unique" "rarity" "Basic")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique Common Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "rarity" "Common") (collection-calc cards "total" "unique" "rarity" "Common")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique Rare Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "rarity" "Rare") (collection-calc cards "total" "unique" "rarity" "Rare")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique Epic Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "rarity" "Epic") (collection-calc cards "total" "unique" "rarity" "Epic")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique Legendary Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "rarity" "Legendary") (collection-calc cards "total" "unique" "rarity" "Legendary")}}}
+      </li>
+
+    </ul>
+
+    <h5>By Set</h5>
+    <ul class="list-group">
+
+      <li class="list-group-item">
+        Unique Classic Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "cardSet" "Classic") (collection-calc cards "total" "unique" "cardSet" "Classic")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique Promotion Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "cardSet" "Promotion") (collection-calc cards "total" "unique" "cardSet" "Promotion")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique Naxx Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "cardSet" "Naxxramas") (collection-calc cards "total" "unique" "cardSet" "Naxxramas")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique GVG Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "cardSet" "Goblins vs Gnomes") (collection-calc cards "total" "unique" "cardSet" "Goblins vs Gnomes")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique BRM Cards:
+        {{{display-stats (collection-calc userCards "your" "unique" "cardSet" "Blackrock Mountain") (collection-calc cards "total" "unique" "cardSet" "Blackrock Mountain")}}}
+      </li>
+
+      <li class="list-group-item">
+        Unique TGT Cards:{{{display-stats (collection-calc userCards "your" "unique" "cardSet" "The Grand Tournament") (collection-calc cards "total" "unique" "cardSet" "The Grand Tournament")}}}
+      </li>
+
+    </ul>
+  </div>
 </div>
