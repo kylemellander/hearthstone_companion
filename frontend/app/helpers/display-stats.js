@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export function displayStats(params) {
   function getColor(value){
-    //value from 0 to 1
     var hue=((value)*120).toString(10);
     return ["hsl(",hue,",75%,33%)"].join("");
   };

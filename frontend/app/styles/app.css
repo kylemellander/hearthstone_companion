@@ -114,3 +114,6 @@ table.km-table {
 .km-deck-table {
   background:rgba(255,255,255,0.3);
 }
+.error {
+  color: red;
+}

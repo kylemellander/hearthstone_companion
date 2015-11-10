@@ -1,0 +1,8 @@
+<a class="card hover-image {{card.rarity}}">
+  {{#if owned}}
+    <div>{{cardDeck.count}} x {{card.name}}</div>
+  {{else}}
+    <div><span class="error">{{card.count}}/{{cardDeck.count}}</span> x {{card.name}}</div>
+  {{/if}}
+  <div class="img-container"></div>
+</a>
