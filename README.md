@@ -1,17 +1,16 @@
-# Template for: Ember Cli (1.13.8), Rails (4.2.4), Simple Auth, & Devise
+# Hearthstone Companion
 
-This template is designed to make it easy to start a project that uses Rails as a backend and Ember CLI as the frontend and use authentication.
+Hearthstone Companion or MyHearth is a companion app to the online card game, Hearthstone.  It allows you to manage your collection and find ways to improve and use your cards.
 
-> Giving you a chance to make that Ember/Rails app you wanted to,
-> without the headache of trying to piece together outdated documentation.
+> Dynamically add and manage your Hearthstone Collection and help you be better Hearthstone player.
 
 ### Version
 1.0.0
 
 ### Features
-* Login
-* Sign Up
-* Error & Success Messages
+* Collection Manager
+* Pack Recommendations
+* Collection Statistics
 
 ### Tech
 * Ember CLI
@@ -19,6 +18,8 @@ This template is designed to make it easy to start a project that uses Rails as 
 * Devise
 * Simple Auth
 * Postgres
+* Bower
+* NPM
 * [node.js]
 * [jQuery]
 
@@ -26,19 +27,14 @@ This template is designed to make it easy to start a project that uses Rails as 
 Clone this repository to your desktop.
 Make sure you have postgres running on your computer
 ```sh
-$ cd Ember-and-Rails-with-Simple-Auth-and-Devise
-$ cd my-backend
+$ cd hearthstone_companion
 $ rake db:create
 $ rake db:migrate
-$ rails s
-```
-This will run the rails backend.
-For the frontend, open up a new tab in your terminal.
-```sh
-$ cd ../updated_frontend
+$ cd frontend
 $ npm install
 $ bower install
-$ ember s --proxy http://localhost:3000
+$ cd ..
+$ rails s
 ```
 
 ### Development
@@ -48,7 +44,9 @@ Want to contribute? Great!
 ### ToDos
 
 * A feature for recovering lost passwords
-* Bug Checking and fixing
+* LoE cards added.
+* Ability to add decks
+* Speed up way decks load
 
 License
 ----
