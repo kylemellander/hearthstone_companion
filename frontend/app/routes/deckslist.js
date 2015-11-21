@@ -29,7 +29,7 @@ export default Ember.Route.extend({
                   "%20css%3D'table.listing-decks%20tbody%20tr'&format=json" +
                   "&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
 
-    $.ajax({
+    Ember.$.ajax({
       dataType: 'json',
       url: originUrl
     }).then(function(jsonDecks) {
@@ -79,10 +79,11 @@ export default Ember.Route.extend({
     hash.decks.forEach(function(deck) {
       if(deck.get('cardDecks').get('length') <= 15) {
         let yql = "https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20data.html.cssselect" +
-        "%20WHERE%20url%3D'http%3A%2F%2Fwww.hearthpwn.com" +
-        deck.get('url').replace("http://www.hearthpwn.com/decks/", "%2Fdecks%2F") +
-        "'%20AND%20css%3D'table.listing-cards-tabular%20tbody%20tr'" +
-        "&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+                  "%20WHERE%20url%3D'http%3A%2F%2Fwww.hearthpwn.com" +
+                  deck.get('url').replace("http://www.hearthpwn.com/decks/", "%2Fdecks%2F") +
+                  "'%20AND%20css%3D'table.listing-cards-tabular%20tbody%20tr'" +
+                  "&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+
         $.ajax({
           dataType: 'json',
           url: yql,
@@ -99,8 +100,6 @@ export default Ember.Route.extend({
                 newCardDeck.save();
               }
             }
-          } else {
-            console.log(remoteDeck);
           }
         });
       }
