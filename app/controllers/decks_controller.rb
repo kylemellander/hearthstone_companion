@@ -14,10 +14,9 @@ class DecksController < ApplicationController
 
     if params[:start] != nil
       end_point = params[:start].to_i + params[:limit].to_i
-      if @decks.length <= end_point
-        end_point = @decks.length - 1
+      if @decks.length > end_point
+        @decks = @decks[params[:start].to_i, end_point]
       end
-      @decks = @decks[params[:start].to_i, end_point]
     end
 
     render json: @decks
