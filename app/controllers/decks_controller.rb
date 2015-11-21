@@ -2,28 +2,25 @@ class DecksController < ApplicationController
   before_action :set_deck, only: [:show, :edit, :update, :destroy]
 
   # GET /decks
-  # GET /decks.json
   def index
     if params[:filter] != nil && params[:filter][:remote_id] != nil
       @decks = Deck.where("remote_id = ?", params[:filter].values[0])
     elsif params[:player_class] != nil
-      @decks = Deck.where("player_class = ?", params[:player_class])
-    else
-      @decks = Deck.all
-    end
-
-    if params[:start] != nil
-      end_point = params[:start].to_i + params[:limit].to_i
-      if @decks.length > end_point
-        @decks = @decks[params[:start].to_i, end_point]
+      if !params[:start].nil? && !params[:limit].nil?
+        @decks = Deck.where("player_class = ? ", params[:player_class]).order(created_at: :desc).limit(params[:limit].to_i).offset(params[:start].to_i)
+      else
+        @decks = Deck.where("player_class = ? ", params[:player_class]).order(created_at: :desc)
       end
+    elsif !params[:start].nil? && !params[:limit].nil?
+      @decks = Deck.order(created_at: :desc).limit(params[:limit].to_i).offset(params[:start].to_i)
+    else
+      @decks = Deck.order(created_at: :desc)
     end
 
     render json: @decks
   end
 
   # GET /decks/1
-  # GET /decks/1.json
   def show
     render json: @deck
   end
@@ -49,16 +46,6 @@ class DecksController < ApplicationController
       render json: @deck.errors, status: :unprocessable_entity
     end
   end
-
-  # # DELETE /decks/1
-  # # DELETE /decks/1.json
-  # def destroy
-  #   @deck.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to decks_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
