@@ -48,7 +48,7 @@ body.loading .main-container {
   float:left;
   margin-left: 30px;
 }
-.main.container {
+.main.container-fluid {
   margin-top:75px;
   background: url('/images/paper-bg.jpg') no-repeat top center fixed;
   background-size: cover;

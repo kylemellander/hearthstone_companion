@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="logo" id='title'>{{#link-to "index"}}<img src="/images/logo.png" alt="My Hearth">{{/link-to}}</div>
   <div class="login menu">
     {{#if session.isAuthenticated}}
@@ -8,7 +8,7 @@
       {{#link-to 'login' class="btn btn-default"}}Login{{/link-to}}
     {{/if}}
   </div>
-  <div class="main container">
+  <div class="main container-fluid">
     <ul class="nav nav-pills navbar-right main-navbar">
       <li role="presentation">{{#link-to 'index'}}Home{{/link-to}}</li>
       {{#if session.isAuthenticated}}

@@ -36,7 +36,7 @@ export default Ember.Component.extend({
       this.sendAction('addCard', card);
     },
     setCardSet(str) {
-      var names = {"": "All", "Classic": "Classic", "Naxxramas": "Naxx", "Goblins vs Gnomes": "GVG", "Blackrock Mountain": "BRM", "The Grand Tournament": "TGT"};
+      var names = {"": "All", "Classic": "Classic", "Naxxramas": "Naxx", "Goblins vs Gnomes": "GVG", "Blackrock Mountain": "BRM", "The Grand Tournament": "TGT", "The League of Explorers": "LOE"};
       this.set('cardSet', str);
       this.$(".set-display").removeClass("active");
       var thisClass = ".set-display." + names[str];
