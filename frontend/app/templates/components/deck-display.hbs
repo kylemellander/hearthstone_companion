@@ -1,3 +1,15 @@
-{{#each deck.cardDecks as |cardDeck|}}
-  {{deck-card-display cardDeck=cardDeck card=cardDeck.card}}
-{{/each}}
+{{#if incomplete}}
+  <div class="clear">
+    <h3>Cards You Are Missing</h3>
+    {{#each cardDecksMissing as |cardDeck|}}
+      {{deck-card-display cardDeck=cardDeck card=cardDeck.card incomplete=incomplete}}
+    {{/each}}
+  </div>
+{{/if}}
+
+<div class="clear">
+  <h3>Cards You Have</h3>
+  {{#each cardDecksYouHave as |cardDeck|}}
+    {{deck-card-display cardDeck=cardDeck card=cardDeck.card}}
+  {{/each}}
+</div>

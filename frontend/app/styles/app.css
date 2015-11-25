@@ -26,6 +26,11 @@ a.card.Basic {
   width: 140px;
   height: auto;
 }
+.hover-float .float-container{
+  display:none;
+  white-space: nowrap;
+  position:absolute;
+}
 .active {
   color:#198eff !important;
   font-weight: bold;
@@ -116,4 +121,7 @@ table.km-table {
 }
 .error {
   color: red;
+}
+.clear {
+  clear:both;
 }
