@@ -30,6 +30,10 @@ a.card.Basic {
   display:none;
   white-space: nowrap;
   position:absolute;
+  padding: 5px;
+  background: #2b2b2b;
+  color: #fff;
+  z-index:20;
 }
 .active {
   color:#198eff !important;

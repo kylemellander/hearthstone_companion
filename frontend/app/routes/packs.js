@@ -3,9 +3,6 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model() {
-    return Ember.RSVP.hash({
-      cards: this.store.findAll('card'),
-      cardUsers: this.store.findAll('cardUser')
-    });
+    return this.store.findAll('card');
   }
 });

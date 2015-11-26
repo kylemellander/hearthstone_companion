@@ -1,5 +1,7 @@
-<div class="col-xs-4 col-sm-2 collection-card">
-  <div class="float-container"></div>
+<div class="col-xs-4 col-sm-2 collection-card hover-float">
+  {{#if incomplete}}
+    <div class="float-container"></div>
+  {{/if}}
   <img src="{{card.img}}" class="img-responsive">
   {{#if incomplete}}
     <div class="card-count error">{{card.count}}/{{cardDeck.count}}</div>
