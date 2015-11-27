@@ -11,4 +11,5 @@ MyBackend::Application.routes.draw do
   get 'deckslist' => 'ember#index'
   get 'stats' => 'ember#index'
   get 'deck/:id' => 'ember#index'
+  get 'tests' => 'ember#index'
 end

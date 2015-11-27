@@ -60,7 +60,7 @@ export default Ember.Route.extend({
     }
   },
 
-  model(params) {
+  model() {
     let query = {start: 0, limit: 25};
 
     if (playerClass) {
@@ -84,7 +84,7 @@ export default Ember.Route.extend({
                   "'%20AND%20css%3D'table.listing-cards-tabular%20tbody%20tr'" +
                   "&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
 
-        $.ajax({
+        Ember.$.ajax({
           dataType: 'json',
           url: yql,
         }).then(function(remoteDeck) {

@@ -23,7 +23,7 @@ export default Ember.Route.extend({
         user.set('password', "[protected]");
         if (response) {
           Ember.$('#messages').html("Your account has been created successfully!").removeClass("error").addClass("success").show();
-          Ember.$("#messages").delay(3000).fadeOut(1000, function() {$(this).empty();});
+          Ember.$("#messages").delay(3000).fadeOut(1000, function() {Ember.$(this).empty();});
         }
       });
     },
@@ -35,10 +35,10 @@ export default Ember.Route.extend({
           self.get('session').content.admin = true;
         }
         Ember.$('#messages').empty().append("You are successfully logged in.").removeClass("error").addClass("success").show();
-        Ember.$("#messages").delay(3000).fadeOut(1000, function() {$(this).empty();});
+        Ember.$("#messages").delay(3000).fadeOut(1000, function() {Ember.$(this).empty();});
       }, function() {
         Ember.$('#messages').empty().append("Your username and/or password are incorrect.").removeClass("success").addClass("error").show();
-        Ember.$("#messages").delay(3000).fadeOut(1000, function() {$(this).empty();});
+        Ember.$("#messages").delay(3000).fadeOut(1000, function() {Ember.$(this).empty();});
       });
     }
   }

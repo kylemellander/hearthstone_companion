@@ -19,9 +19,9 @@ export default Ember.Component.extend({
     } else {
       result = 40;
     }
-    return rarity != "Legendary" && this.get('card').get('count') === 0 ? result * 2 : result;
+    return rarity !== "Legendary" && this.get('card').get('count') === 0 ? result * 2 : result;
   }),
-  mouseEnter: function(e) {
+  mouseEnter: function() {
     this.$('.float-container').html(this.get('tooltip'));
   },
   mouseMove: function(e) {

@@ -15,5 +15,8 @@
     "qunit": "~1.18.0",
     "active-model-adapter": "~2.0.1",
     "bootstrap": "~3.3.2"
+  },
+  "devDependencies": {
+    "blanket": "~1.1.5"
   }
 }

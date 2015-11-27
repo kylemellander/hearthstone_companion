@@ -1,0 +1,440 @@
+{
+  "stats": {
+    "suites": 97,
+    "tests": 97,
+    "passes": 95,
+    "pending": 0,
+    "failures": 2,
+    "start": "2015-11-27T18:06:29.409Z",
+    "end": "2015-11-27T18:06:31.266Z"
+  },
+  "coverage": {
+    "total": {
+      "statementsTotal": 629,
+      "statementsCovered": 258,
+      "percentage": 41.02
+    },
+    "files": [
+      {
+        "name": "updated-frontend/helpers/deck-dust-cost",
+        "statementsTotal": 6,
+        "statementsCovered": 6,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/helpers/display-stats",
+        "statementsTotal": 10,
+        "statementsCovered": 10,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/helpers/dust-needed",
+        "statementsTotal": 6,
+        "statementsCovered": 6,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/helpers/your-playable-cards-percentage",
+        "statementsTotal": 6,
+        "statementsCovered": 6,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/router",
+        "statementsTotal": 13,
+        "statementsCovered": 5,
+        "percentage": 38.46
+      },
+      {
+        "name": "updated-frontend/config/environment",
+        "statementsTotal": 2,
+        "statementsCovered": 1,
+        "percentage": 50
+      },
+      {
+        "name": "updated-frontend/components/collection-stats",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/helpers/collection-calc",
+        "statementsTotal": 28,
+        "statementsCovered": 12,
+        "percentage": 42.86
+      },
+      {
+        "name": "updated-frontend/controllers/deckslist",
+        "statementsTotal": 4,
+        "statementsCovered": 3,
+        "percentage": 75
+      },
+      {
+        "name": "updated-frontend/models/deck",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/models/card",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/models/card-deck",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/models/user",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/routes/loading",
+        "statementsTotal": 5,
+        "statementsCovered": 3,
+        "percentage": 60
+      },
+      {
+        "name": "updated-frontend/routes/collection",
+        "statementsTotal": 5,
+        "statementsCovered": 3,
+        "percentage": 60
+      },
+      {
+        "name": "updated-frontend/routes/deck",
+        "statementsTotal": 4,
+        "statementsCovered": 3,
+        "percentage": 75
+      },
+      {
+        "name": "updated-frontend/routes/deckslist",
+        "statementsTotal": 42,
+        "statementsCovered": 4,
+        "percentage": 9.52
+      },
+      {
+        "name": "updated-frontend/routes/login",
+        "statementsTotal": 30,
+        "statementsCovered": 3,
+        "percentage": 10
+      },
+      {
+        "name": "updated-frontend/routes/packs",
+        "statementsTotal": 4,
+        "statementsCovered": 3,
+        "percentage": 75
+      },
+      {
+        "name": "updated-frontend/routes/scrape",
+        "statementsTotal": 22,
+        "statementsCovered": 3,
+        "percentage": 13.64
+      },
+      {
+        "name": "updated-frontend/routes/stats",
+        "statementsTotal": 4,
+        "statementsCovered": 3,
+        "percentage": 75
+      },
+      {
+        "name": "updated-frontend/serializers/deck",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/adapters/application",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/app",
+        "statementsTotal": 6,
+        "statementsCovered": 6,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/initializers/active-model-adapter",
+        "statementsTotal": 6,
+        "statementsCovered": 3,
+        "percentage": 50
+      },
+      {
+        "name": "updated-frontend/initializers/app-version",
+        "statementsTotal": 6,
+        "statementsCovered": 6,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/initializers/export-application-global",
+        "statementsTotal": 17,
+        "statementsCovered": 5,
+        "percentage": 29.41
+      },
+      {
+        "name": "updated-frontend/initializers/load-bootstrap-config",
+        "statementsTotal": 6,
+        "statementsCovered": 5,
+        "percentage": 83.33
+      },
+      {
+        "name": "updated-frontend/initializers/simple-auth-devise",
+        "statementsTotal": 6,
+        "statementsCovered": 3,
+        "percentage": 50
+      },
+      {
+        "name": "updated-frontend/initializers/simple-auth",
+        "statementsTotal": 5,
+        "statementsCovered": 3,
+        "percentage": 60
+      },
+      {
+        "name": "updated-frontend/instance-initializers/active-model-adapter",
+        "statementsTotal": 9,
+        "statementsCovered": 3,
+        "percentage": 33.33
+      },
+      {
+        "name": "updated-frontend/components/app-version",
+        "statementsTotal": 6,
+        "statementsCovered": 6,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-accordion-item",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-accordion",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-alert",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-button-group",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-button",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-collapse",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-dropdown-button",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-dropdown-menu",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-dropdown-toggle",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-dropdown",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-form-element",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-form-group",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-form",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-input",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-select",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/bs-textarea",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/card-list-card",
+        "statementsTotal": 14,
+        "statementsCovered": 3,
+        "percentage": 21.43
+      },
+      {
+        "name": "updated-frontend/components/card-list",
+        "statementsTotal": 30,
+        "statementsCovered": 3,
+        "percentage": 10
+      },
+      {
+        "name": "updated-frontend/components/collection-container",
+        "statementsTotal": 5,
+        "statementsCovered": 3,
+        "percentage": 60
+      },
+      {
+        "name": "updated-frontend/components/deck-card-display",
+        "statementsTotal": 20,
+        "statementsCovered": 3,
+        "percentage": 15
+      },
+      {
+        "name": "updated-frontend/components/deck-display",
+        "statementsTotal": 22,
+        "statementsCovered": 3,
+        "percentage": 13.64
+      },
+      {
+        "name": "updated-frontend/components/deck-preview",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/components/login-boxes",
+        "statementsTotal": 10,
+        "statementsCovered": 3,
+        "percentage": 30
+      },
+      {
+        "name": "updated-frontend/components/my-collection-card",
+        "statementsTotal": 18,
+        "statementsCovered": 3,
+        "percentage": 16.67
+      },
+      {
+        "name": "updated-frontend/components/my-collection",
+        "statementsTotal": 47,
+        "statementsCovered": 3,
+        "percentage": 6.38
+      },
+      {
+        "name": "updated-frontend/components/pack-values-container",
+        "statementsTotal": 14,
+        "statementsCovered": 3,
+        "percentage": 21.43
+      },
+      {
+        "name": "updated-frontend/components/pack-values",
+        "statementsTotal": 32,
+        "statementsCovered": 3,
+        "percentage": 9.38
+      },
+      {
+        "name": "updated-frontend/components/page-numbers",
+        "statementsTotal": 31,
+        "statementsCovered": 3,
+        "percentage": 9.68
+      },
+      {
+        "name": "updated-frontend/controllers/array",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/controllers/object",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/helpers/cards-in-deck-by-type",
+        "statementsTotal": 11,
+        "statementsCovered": 5,
+        "percentage": 45.45
+      },
+      {
+        "name": "updated-frontend/helpers/cards-in-deck-you-have-by-type",
+        "statementsTotal": 14,
+        "statementsCovered": 5,
+        "percentage": 35.71
+      },
+      {
+        "name": "updated-frontend/helpers/is-equal",
+        "statementsTotal": 4,
+        "statementsCovered": 4,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/helpers/is-not",
+        "statementsTotal": 4,
+        "statementsCovered": 4,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/helpers/new-deck",
+        "statementsTotal": 7,
+        "statementsCovered": 5,
+        "percentage": 71.43
+      },
+      {
+        "name": "updated-frontend/helpers/read-path",
+        "statementsTotal": 4,
+        "statementsCovered": 4,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/routes/application",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      },
+      {
+        "name": "updated-frontend/serializers/application",
+        "statementsTotal": 3,
+        "statementsCovered": 3,
+        "percentage": 100
+      }
+    ]
+  }
+}

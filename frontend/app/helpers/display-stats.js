@@ -4,7 +4,7 @@ export function displayStats(params) {
   function getColor(value){
     var hue=((value)*120).toString(10);
     return ["hsl(",hue,",75%,33%)"].join("");
-  };
+  }
 
   var perc = Math.round(params[0]/params[1]*10000)/100;
   return  '<span class="badge" style="background:' +
