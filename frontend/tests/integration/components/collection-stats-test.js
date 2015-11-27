@@ -7,13 +7,12 @@ moduleForComponent('collection-stats', 'Integration | Component | collection sta
   integration: true,
   needs: ['model:card'],
   beforeEach: function() {
-    Ember.inject.service('store');
-    cards = Ember.store.findAll('card');
+    // Ember.inject.service('store');
+    // cards = Ember.store.findAll('card');
   }
 });
 
 test('it renders', function(assert) {
-  console.log(cards);
   assert.expect(2);
 
   // Set any properties with this.set('myProperty', 'value');
