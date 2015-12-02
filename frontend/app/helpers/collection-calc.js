@@ -9,7 +9,7 @@ export function collectionCalc(params/*, hash*/) {
   let value = params[4];
 
   cards.forEach(function(card) {
-    if (filter === "total" || card.get(filter) === value) {
+    if ((filter === "total" || card.get(filter) === value) && value !== "Promotion") {
       if (collected) {
         if (unique) {
           if (card.get('count') > 0) {
@@ -18,17 +18,17 @@ export function collectionCalc(params/*, hash*/) {
         } else {
           sum += card.get('count');
         }
-      } else if (value === "Legendary" || unique) {
+      } else if (card.get('rarity') === "Legendary" || unique) {
         sum += 1;
       } else {
         sum += 2;
       }
     }
-    if (value === "Promotion" && card.get(filter) === "Reward") {
-      if (unique || card.get('rarity') === "Legendary") {
-        sum += 1;
-      } else if (collected){
+    if (value === "Promotion" && (card.get(filter) === "Reward" || card.get(filter) === "Promotion")) {
+      if (collected) {
         sum += card.get('count');
+      } else if (unique || card.get('rarity') === "Legendary") {
+        sum += 1;
       } else {
         sum += 2;
       }
