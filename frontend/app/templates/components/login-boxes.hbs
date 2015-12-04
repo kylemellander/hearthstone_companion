@@ -11,7 +11,7 @@
       {{input placeholder="Choose a Password" type="password" value=password class="form-control"}}
     </div>
 
-    <button type="submit" class="btn btn-primary">Sign Up</button> <a {{action 'setSignup' false}} class="btn btn-default">Login</a>
+    <button type="submit" class="btn btn-primary">Sign Up</button> <a {{action 'setSignup' false}}>Login</a>
   </form>
 {{else}}
   <form id="login" {{action 'authenticate' on='submit'}}>
@@ -26,6 +26,6 @@
       {{input id='password' placeholder='Enter Password' type='password' value=password class="form-control"}}
     </div>
 
-    <button id="submit" type="submit" class="btn btn-primary">Login</button> <a {{action 'setSignup' true}} class="btn btn-default">Sign Up</a>
+    <button id="submit" type="submit" class="btn btn-primary">Login</button> <a {{action 'setSignup' true}}>Sign Up</a>
   </form>
 {{/if}}

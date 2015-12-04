@@ -2,7 +2,7 @@
   {{#if incomplete}}
     <div class="float-container"></div>
   {{/if}}
-  <img src="{{card.img}}" class="img-responsive">
+  <img src="{{card.img}}" class="img-responsive" alt="{{card.name}}">
   {{#if incomplete}}
     <div class="card-count error">{{card.count}}/{{cardDeck.count}}</div>
   {{else}}
