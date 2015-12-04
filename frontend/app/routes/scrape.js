@@ -46,9 +46,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
               }
             }
           }
+        }).then(function() {
+          Ember.$('#messages').html("Scrape Completed").removeClass("error").addClass("success").show();
+          Ember.$("#messages").delay(5000).fadeOut(1000, function() {Ember.$(this).empty();});
         });
       } else {
-        Ember.$('#messages').empty().append("You need to be logged in to scrape the cards").removeClass("success").addClass("error");
+        Ember.$('#messages').html("You need to be logged in to scrape the cards").removeClass("success").addClass("error");
       }
     }
   }

@@ -87,8 +87,17 @@ body.loading .main-container {
 ul.main-navbar {
   margin-right: 12px;
 }
-.messages{
+#messages{
   clear:both;
+  padding: 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+#messages.error {
+  background: red;
+}
+#messages.success {
+  background: green;
 }
 .km-banner {
   width: 100%;
