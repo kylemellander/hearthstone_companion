@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :card_users
   has_many :cards, through: :card_users
-
+  has_one :user_info
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

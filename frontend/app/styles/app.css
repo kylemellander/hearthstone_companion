@@ -129,3 +129,6 @@ table.km-table {
 .clear {
   clear:both;
 }
+.img-responsive.full-width {
+  width: 100%;
+}

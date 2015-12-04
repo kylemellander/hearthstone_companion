@@ -20,7 +20,7 @@ describe DecksController do
     it "returns a specific deck" do
       deck = Deck.create(name: "Blah")
       get :show, id: deck.id, format: "json"
-      expect(response.body).to eq "{\"deck\":{\"id\":#{deck.id},\"name\":\"Blah\",\"url\":null,\"player_class\":null,\"remote_id\":null,\"card_decks\":[],\"cards\":[]}}"
+      expect(response.body).to eq "{\"deck\":{\"id\":#{deck.id},\"name\":\"Blah\",\"url\":null,\"player_class\":null,\"remote_id\":null,\"card_decks\":[]}}"
     end
   end
 

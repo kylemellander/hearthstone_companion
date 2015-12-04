@@ -22,6 +22,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                     if(response[key][prop].cardSet === "Basic") {
                       rarity = "Basic";
                       cardSet = "Classic";
+                    } else if (response[key][prop].cardSet === "Reward") {
+                      rarity = response[key][prop].rarity;
+                      cardSet = "Promotion";
                     } else {
                       rarity = response[key][prop].rarity;
                       cardSet = response[key][prop].cardSet;

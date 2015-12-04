@@ -34,22 +34,28 @@ export default Ember.Route.extend({
       url: originUrl
     }).then(function(jsonDecks) {
       let remoteDecks = jsonDecks.query.results.results.tr;
-      remoteDecks.forEach(function(deck) {
+      remoteDecks.forEach(function(deck, index) {
         let partialUrl = deck.td[0].div.span.a.href;
+        let deckType = deck.td[1].content;
         let id = partialUrl.replace("/decks/", "").split("-")[0];
         let url = "http://www.hearthpwn.com" + partialUrl;
         let params = {
-          name: deck.td[0].div.span.a.content.replace("&#27;", "'"),
+          name: deck.td[0].div.span.a.content.replace(/&#27;/g, "'"),
           url: url,
           playerClass: deck.td[3].content,
-          remoteId: id
+          deckType: deckType,
+          remoteId: id,
+          position: index + 1
         };
-        context.store.queryRecord('deck', {filter: {remote_id: id}}).then(function(deck) {
-          if ( deck === undefined ) {
-            let newDeck = context.store.createRecord('deck', params);
-            newDeck.save();
-          }
-        });
+
+        if (!(deckType === "Tavern Brawl")) {
+          context.store.queryRecord('deck', {filter: {remote_id: id}}).then(function(deck) {
+            if ( deck === undefined ) {
+              let newDeck = context.store.createRecord('deck', params);
+              newDeck.save();
+            }
+          });
+        }
       });
     });
   },
@@ -93,7 +99,7 @@ export default Ember.Route.extend({
             for(let k in tr) {
               if(tr.hasOwnProperty(k)) {
                 let count = parseInt(tr[k].td[0].b.a["data-count"]);
-                let cardName = tr[k].td[0].b.a.content.replace("&#27;", "'").trim();
+                let cardName = tr[k].td[0].b.a.content.replace(/&#27;/g, "'").trim();
                 let card = hash.cards.findBy('name', cardName);
                 let cardDeckParams = {card: card, deck: deck, count: count};
                 let newCardDeck = context.store.createRecord('cardDeck', cardDeckParams);

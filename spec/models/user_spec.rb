@@ -6,4 +6,5 @@ describe User do
   it "ensures authentication token" do
     expect(User.new.ensure_authentication_token).not_to eq ""
   end
+  it { should have_one :user_info }
 end
