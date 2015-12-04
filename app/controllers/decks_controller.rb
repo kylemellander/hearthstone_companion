@@ -7,12 +7,12 @@ class DecksController < ApplicationController
       @decks = Deck.where("remote_id = ?", params[:filter].values[0])
     elsif params[:player_class] != nil
       if !params[:start].nil? && !params[:limit].nil?
-        @decks = Deck.where("player_class = ? ", params[:player_class]).order(created_at: :desc).limit(params[:limit].to_i).offset(params[:start].to_i)
+        @decks = Deck.where("player_class = ? ", params[:player_class]).limit(params[:limit].to_i).offset(params[:start].to_i)
       else
-        @decks = Deck.where("player_class = ? ", params[:player_class]).order(created_at: :desc)
+        @decks = Deck.where("player_class = ? ", params[:player_class])
       end
     elsif !params[:start].nil? && !params[:limit].nil?
-      @decks = Deck.order(created_at: :desc).limit(params[:limit].to_i).offset(params[:start].to_i)
+      @decks = Deck.limit(params[:limit].to_i).offset(params[:start].to_i)
     else
       @decks = Deck.order(created_at: :desc)
     end
