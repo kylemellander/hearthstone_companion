@@ -2,11 +2,11 @@
   "stats": {
     "suites": 99,
     "tests": 99,
-    "passes": 98,
+    "passes": 97,
     "pending": 0,
-    "failures": 1,
-    "start": "2015-11-27T19:51:09.373Z",
-    "end": "2015-11-27T19:51:10.878Z"
+    "failures": 2,
+    "start": "2015-11-27T22:40:23.521Z",
+    "end": "2015-11-27T22:40:24.840Z"
   },
   "coverage": {
     "total": {
